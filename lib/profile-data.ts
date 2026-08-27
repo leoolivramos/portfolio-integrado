@@ -4,7 +4,7 @@ export const STATIC_PROFILE = {
   contact: {
     email: "leoolivramos@gmail.com",
     linkedin: "https://linkedin.com/in/leonardo-de-oliveira-ramos-690318270",
-    github: "https://github.com/LE0N4RDOR4M0S",
+    github: "https://github.com/leoolivramos",
     phone: "+55 (65) 99212-1341",
     location: "Cuiabá, Mato Grosso, Brasil"
   },
@@ -12,7 +12,7 @@ export const STATIC_PROFILE = {
     {
       degree: "Bacharelado em Ciência da Computação",
       institution: "Universidade Federal de Mato Grosso (UFMT)",
-      status: "Em andamento (6º Semestre)",
+      status: "Em andamento (8º Semestre)",
       key_learnings: ["Estrutura de Dados Avançada", "IA", "Algoritmos", "Engenharia de Software", "Teoria da Computação", "Redes", "Banco de Dados"]
     },
     {

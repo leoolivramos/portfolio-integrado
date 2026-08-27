@@ -53,7 +53,7 @@ export function Hero() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <SocialButton href="https://github.com/LE0N4RDOR4M0S" icon={Github} label="GitHub" />
+        <SocialButton href="https://github.com/leoolivramos" icon={Github} label="GitHub" />
         <SocialButton href="https://linkedin.com/in/leonardo-de-oliveira-ramos-690318270" icon={Linkedin} label="LinkedIn" />
         <SocialButton href="https://medium.com/@leoolivramos" icon={BookOpen} label="Medium" />
         <SocialButton href="mailto:leoolivramos@gmail.com" icon={Mail} label="Email" />
