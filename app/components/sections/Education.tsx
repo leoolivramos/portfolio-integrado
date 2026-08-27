@@ -14,7 +14,7 @@ export function Education() {
               <p className="text-sm text-muted-foreground mt-1">Universidade Federal de Mato Grosso (UFMT)</p>
             </div>
             <span className="text-xs font-mono bg-secondary text-secondary-foreground px-2 py-1 rounded border border-border">
-              6º Semestre
+              8º Semestre
             </span>
           </div>
           <p className="text-sm text-muted-foreground mt-3 leading-relaxed">

@@ -8,7 +8,7 @@ export function Experience() {
       <div className="mt-8 space-y-0">
         <TimelineItem
           year="Jun 2024 - Atual"
-          title="Estágio em Desenvolvimento & DevOps"
+          title="Estagiário em Desenvolvimento"
           place="Controladoria Geral do Estado (CGE-MT)"
           description="Desenvolvimento Full Stack (Spring Boot, Vue.js) e Engenharia de Dados com PySpark"
         />
@@ -19,6 +19,15 @@ export function Experience() {
           title="Desenvolvedor e Diretor de Projetos Voluntário"
           place="Infocorp Jr. (Empresa Júnior de TI - UFMT)"
           description="Liderança de projetos de desenvolvimento de software para clientes reais"
+        />
+      </div>
+
+      <div className="mt-8 space-y-0">
+        <TimelineItem
+          year="Fev 2026 - Atual"
+          title="Analista e Desenvolvedor de Sistemas"
+          place="NIESA - Núcleo Interdisciplinar de Estudos em Saneamento Ambiental (UFMT)"
+          description="Desenvolvimento de sistemas web, com foco em análise de dados e visualização"
         />
       </div>
     </section>
