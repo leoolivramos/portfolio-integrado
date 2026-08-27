@@ -4,7 +4,6 @@
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge\&logo=next.js\&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge\&logo=typescript\&logoColor=white)
-![Llama 3](https://img.shields.io/badge/Llama_3-Groq_LPU-orange?style=for-the-badge)
 ![Prisma](https://img.shields.io/badge/Prisma-PostgreSQL-2d3748?style=for-the-badge\&logo=prisma\&logoColor=white)
 
 Este repositório contém a implementação de um **Portfólio Inteligente**, feito pra fugir completamente do “site bonito com print de projeto velho”.
@@ -135,8 +134,8 @@ Script de sincronização que:
 ### Passo 1: Configuração
 
 ```bash
-git clone https://github.com/seu-usuario/intelligent-portfolio.git
-cd intelligent-portfolio
+git clone https://github.com/leoolivramos/portfolio-integrado
+cd portfolio-integrado
 npm install
 ```
 
@@ -174,7 +173,7 @@ npm run dev
 * **Framework:** Next.js 14
 * **ORM:** Prisma
 * **Banco:** PostgreSQL
-* **IA:** Llama 3.1 8B
+* **IA:** GPT OSS 20B
 * **AI SDK:** Vercel AI SDK
 * **Visualização:** Recharts
 * **UI:** Tailwind CSS + Shadcn/UI

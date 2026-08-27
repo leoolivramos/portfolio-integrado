@@ -56,7 +56,7 @@ export function ChatWidget() {
                 <h3 className="font-semibold text-sm">Leonardo AI Assistant</h3>
                 <p className="text-[10px] text-current opacity-75 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"/>
-                  Llama-3.1-8B-instant Online
+                  GPT OSS 20B
                 </p>
               </div>
             </div>
