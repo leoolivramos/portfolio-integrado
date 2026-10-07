@@ -12,14 +12,19 @@ export const STATIC_PROFILE = {
     {
       degree: "Bacharelado em Ciência da Computação",
       institution: "Universidade Federal de Mato Grosso (UFMT)",
-      status: "Em andamento (8º Semestre)",
+      status: "Em andamento (Inicio em 07/2023 - 8º Semestre Atual)",
       key_learnings: ["Estrutura de Dados Avançada", "IA", "Algoritmos", "Engenharia de Software", "Teoria da Computação", "Redes", "Banco de Dados"]
     },
     {
       degree: "Programador de Sistemas Java",
       institution: "Fic-Dev / Seciteci MT",
-      status: "Concluído (2023)",
+      status: "Concluído (Março/2023- Novembro/2023)",
       key_learnings: ["Java Orientado a Objetos", "Spring Boot", "Persistência de Dados", "APIs REST", "Boas Práticas de Programação"]
+    },
+    {
+      degree: "IA e Dados para Desenvolvimento de Sistemas",
+      institution: "Fic-Dev / Seciteci MT",
+      status: "Em andamento (Inicio em Agosto 2026)",
     }
   ],
   soft_skills: [
