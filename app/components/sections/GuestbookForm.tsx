@@ -4,6 +4,7 @@ import { saveGuestbookEntry } from "@/app/actions";
 import { useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { SignOutButton } from "../ui/SignOutButton";
+import { Send } from "lucide-react";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -12,9 +13,10 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="bg-zinc-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-zinc-800 disabled:opacity-50 transition-all"
+      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-sm text-sm font-medium hover:opacity-90 disabled:opacity-50 transition-all shadow-xs cursor-pointer"
     >
-      {pending ? 'Enviando...' : 'Assinar Guestbook'}
+      <Send size={14} />
+      <span>{pending ? 'Registrando...' : 'Assinar Livro'}</span>
     </button>
   );
 }
@@ -34,15 +36,15 @@ export function GuestbookForm({ user }: { user: any }) {
       <input
         name="message"
         required
-        placeholder={`Deixe uma mensagem como ${user.name}...`}
-        className="w-full p-3 rounded-lg bg-background border border-border focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all placeholder:text-xs sm:placeholder:text-sm"
+        placeholder={`Escreva sua nota como ${user.name}...`}
+        className="w-full p-3 rounded-sm bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all text-sm font-sans placeholder:text-muted-foreground"
         maxLength={500}
       />
-      <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-muted-foreground">Logado como <b>{user.name}</b></span>
-            <SignOutButton />
-    </div>
-      <div className="flex justify-end">
+      <div className="flex justify-between items-center text-xs text-muted-foreground pt-1">
+        <span>Assinando como <strong className="text-foreground">{user.name}</strong></span>
+        <SignOutButton />
+      </div>
+      <div className="flex justify-end pt-2">
         <SubmitButton />
       </div>
     </form>
