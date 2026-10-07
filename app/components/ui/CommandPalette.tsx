@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Mail, FileText, Sun, Moon, Home, Code, BookOpen, MessageCircle, Check } from 'lucide-react';
+import { Mail, FileText, Sun, Moon, Home, Code, BookOpen, MessageCircle, Check, Terminal } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 interface CommandPaletteProps {
@@ -80,30 +80,44 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     // Navigation
     {
       id: 'home',
-      label: 'Ir para Home',
+      label: 'Ir para Início (Atelier)',
       icon: Home,
       action: () => handleNavigate('hero'),
       group: 'Navegar'
     },
     {
       id: 'projects',
-      label: 'Ir para Projetos',
+      label: 'Ir para Carta de Projetos',
       icon: Code,
       action: () => handleNavigate('projects'),
       group: 'Navegar'
     },
     {
+      id: 'skills',
+      label: 'Ir para Arsenal Técnico (Ingredientes)',
+      icon: Terminal,
+      action: () => handleNavigate('skills'),
+      group: 'Navegar'
+    },
+    {
       id: 'experience',
-      label: 'Ir para Experiência',
+      label: 'Ir para Jornada & Maturação',
       icon: MessageCircle,
       action: () => handleNavigate('experience'),
       group: 'Navegar'
     },
     {
-      id: 'education',
-      label: 'Ir para Educação',
+      id: 'telemetry',
+      label: 'Ir para Telemetria do Laboratório',
       icon: BookOpen,
-      action: () => handleNavigate('education'),
+      action: () => handleNavigate('analyticsdashboard'),
+      group: 'Navegar'
+    },
+    {
+      id: 'guestbook',
+      label: 'Ir para Caderno de Visitas',
+      icon: Mail,
+      action: () => handleNavigate('guestbook'),
       group: 'Navegar'
     },
     // Actions
@@ -116,7 +130,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     },
     {
       id: 'download-cv',
-      label: 'Baixar CV',
+      label: 'Baixar Currículo (PDF)',
       icon: FileText,
       action: handleDownloadCV,
       group: 'Ações'
@@ -124,7 +138,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     // Theme
     {
       id: 'toggle-theme',
-      label: theme === 'dark' ? 'Modo Light' : 'Modo Dark',
+      label: theme === 'dark' ? 'Modo Claro' : 'Modo Escuro',
       icon: theme === 'dark' ? Sun : Moon,
       action: handleToggleTheme,
       group: 'Aparência'
@@ -141,7 +155,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
         onClick={() => {
           onClose();
           setSearch('');
@@ -149,24 +163,24 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       />
 
       {/* Command Palette */}
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-2xl">
-        <div className="rounded-lg border border-border bg-card shadow-2xl overflow-hidden">
-          <div className="flex items-center border-b border-border px-4">
-            <span className="mr-2 text-muted-foreground">⌘</span>
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-xl p-4">
+        <div className="rounded-sm border border-border bg-card shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150">
+          <div className="flex items-center border-b border-border px-4 py-1 bg-parchment">
+            <Terminal size={16} className="mr-3 text-terracotta shrink-0" />
             <input
               type="text"
-              placeholder="Navegar, ações, tema..."
-              className="flex h-12 w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground"
+              placeholder="Digite um comando, seção ou atalho..."
+              className="flex h-11 w-full bg-transparent py-2 text-sm font-sans outline-none placeholder:text-muted-foreground text-foreground"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               autoFocus
             />
           </div>
 
-          <div className="max-h-96 overflow-y-auto py-2">
+          <div className="max-h-80 overflow-y-auto py-2 p-2">
             {filteredCommands.length === 0 ? (
-              <div className="py-6 text-center text-sm text-muted-foreground">
-                Nenhum resultado encontrado.
+              <div className="py-8 text-center text-xs font-mono text-muted-foreground">
+                Nenhum comando correspondente encontrado.
               </div>
             ) : (
               groups.map((group) => {
@@ -174,8 +188,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                 if (groupCommands.length === 0) return null;
 
                 return (
-                  <div key={group}>
-                    <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  <div key={group} className="mb-2 last:mb-0">
+                    <div className="px-3 py-1 text-[10px] font-mono font-bold text-terracotta uppercase tracking-widest">
                       {group}
                     </div>
                     {groupCommands.map((cmd) => {
@@ -184,10 +198,10 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                         <button
                           key={cmd.id}
                           onClick={cmd.action}
-                          className="w-full relative flex cursor-pointer select-none items-center rounded-sm px-4 py-2.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground transition-colors text-left"
+                          className="w-full relative flex cursor-pointer select-none items-center rounded-sm px-3 py-2 text-xs font-sans outline-none hover:bg-parchment hover:text-foreground text-foreground/90 transition-colors text-left"
                         >
-                          <Icon className={`mr-3 h-4 w-4 flex-shrink-0 ${copied && cmd.id === 'copy-email' ? 'text-green-500' : ''}`} />
-                          <span>{cmd.label}</span>
+                          <Icon className={`mr-2.5 h-3.5 w-3.5 flex-shrink-0 ${copied && cmd.id === 'copy-email' ? 'text-olive' : 'text-terracotta'}`} />
+                          <span className="font-medium">{cmd.label}</span>
                         </button>
                       );
                     })}
@@ -198,8 +212,9 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
           </div>
 
           {/* Footer hint */}
-          <div className="border-t border-border bg-muted/50 px-4 py-2 text-xs text-muted-foreground">
-            Pressione <kbd className="rounded bg-muted px-1.5 font-mono">ESC</kbd> para fechar
+          <div className="border-t border-border bg-parchment px-4 py-2 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
+            <span>Laboratório de Navegação Rápida</span>
+            <span>ESC para fechar</span>
           </div>
         </div>
       </div>
