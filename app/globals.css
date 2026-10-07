@@ -1,65 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
-  --foreground: #0f172a;
+  --background: #FAF6F1;
+  --foreground: #2C2417;
   
-  --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card: #FFFCF7;
+  --card-foreground: #2C2417;
   
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover: #FFFCF7;
+  --popover-foreground: #2C2417;
   
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
+  --primary: #B8472A;
+  --primary-foreground: #FFFCF7;
   
-  --secondary: #f0f9ff;
-  --secondary-foreground: #0f172a;
+  --secondary: #F5EDE3;
+  --secondary-foreground: #2C2417;
   
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted: #F0E8DC;
+  --muted-foreground: #8C7A64;
   
-  --accent: #0ea5e9;
-  --accent-foreground: #ffffff;
+  --accent: #5B7B3A;
+  --accent-foreground: #FFFCF7;
   
-  --destructive: #ef4444;
-  --destructive-foreground: #fafafa;
+  --destructive: #B8472A;
+  --destructive-foreground: #FAF6F1;
   
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #2563eb;
+  --border: #E0D5C5;
+  --input: #E0D5C5;
+  --ring: #B8472A;
   
-  --radius: 0.75rem;
+  --radius: 0.5rem;
+  
+  --terracotta: #B8472A;
+  --terracotta-light: #D4705A;
+  --olive: #5B7B3A;
+  --olive-light: #8BA86A;
+  --charcoal: #2C2417;
+  --cream: #FAF6F1;
+  --ivory: #FFFCF7;
+  --warm-brown: #8C7A64;
+  --burnt-sienna: #A0522D;
+  --parchment: #F5EDE3;
+  --ember: #E8934A;
+  --ember-glow: rgba(232, 147, 74, 0.15);
+  --metallic: #9E8E7E;
+  
+  --font-editorial: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-technical: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 }
 
 html.dark {
-  --background: #0f172a;
-  --foreground: #f1f5f9;
+  --background: #1A1410;
+  --foreground: #EDE5D8;
   
-  --card: #1e293b;
-  --card-foreground: #f1f5f9;
+  --card: #241E17;
+  --card-foreground: #EDE5D8;
   
-  --popover: #1e293b;
-  --popover-foreground: #f1f5f9;
+  --popover: #241E17;
+  --popover-foreground: #EDE5D8;
   
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
+  --primary: #D4705A;
+  --primary-foreground: #1A1410;
   
-  --secondary: #1e3a8a;
-  --secondary-foreground: #f1f5f9;
+  --secondary: #2E261E;
+  --secondary-foreground: #EDE5D8;
   
-  --muted: #334155;
-  --muted-foreground: #cbd5e1;
+  --muted: #332B22;
+  --muted-foreground: #A89882;
   
-  --accent: #0ea5e9;
-  --accent-foreground: #ffffff;
+  --accent: #8BA86A;
+  --accent-foreground: #1A1410;
   
-  --destructive: #7f1d1d;
-  --destructive-foreground: #fafafa;
+  --destructive: #D4705A;
+  --destructive-foreground: #1A1410;
   
-  --border: #334155;
-  --input: #334155;
-  --ring: #3b82f6;
+  --border: #3D342A;
+  --input: #3D342A;
+  --ring: #D4705A;
+  
+  --terracotta: #D4705A;
+  --terracotta-light: #E8934A;
+  --olive: #8BA86A;
+  --olive-light: #A8C87A;
+  --charcoal: #EDE5D8;
+  --cream: #1A1410;
+  --ivory: #241E17;
+  --warm-brown: #A89882;
+  --burnt-sienna: #C06830;
+  --parchment: #2E261E;
+  --ember: #E8934A;
+  --ember-glow: rgba(232, 147, 74, 0.12);
+  --metallic: #7A6E62;
 }
 
 @theme inline {
@@ -83,22 +116,49 @@ html.dark {
   --color-input: var(--input);
   --color-ring: var(--ring);
   
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-light: var(--terracotta-light);
+  --color-olive: var(--olive);
+  --color-olive-light: var(--olive-light);
+  --color-charcoal: var(--charcoal);
+  --color-cream: var(--cream);
+  --color-ivory: var(--ivory);
+  --color-warm-brown: var(--warm-brown);
+  --color-burnt-sienna: var(--burnt-sienna);
+  --color-parchment: var(--parchment);
+  --color-ember: var(--ember);
+  --color-metallic: var(--metallic);
+  
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-technical);
+  --font-serif: var(--font-editorial);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-weight: 400;
-  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Subtle paper texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
 }
 
 html {
@@ -106,14 +166,14 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 5px;
+  border-radius: 4px;
   transition: background 0.3s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -122,4 +182,356 @@ html {
 
 .text-balance {
   text-wrap: balance;
+}
+
+/* ===== TYPOGRAPHY CLASSES ===== */
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-technical {
+  font-family: var(--font-technical);
+}
+
+/* ===== ANIMATION KEYFRAMES ===== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes stampIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.3) rotate(-2deg);
+    filter: blur(2px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.98) rotate(0.5deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes warmGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes emberFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-6px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes revealFromLeft {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ===== ANIMATION UTILITY CLASSES ===== */
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-stamp-in {
+  animation: stampIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.animate-warm-glow {
+  animation: warmGlow 4s ease-in-out infinite;
+}
+
+.animate-draw-line {
+  animation: drawLine 1s ease-out forwards;
+  transform-origin: left;
+}
+
+.animate-ember-float {
+  animation: emberFloat 3s ease-in-out infinite;
+}
+
+.animate-reveal-left {
+  animation: revealFromLeft 0.8s ease-out forwards;
+}
+
+/* Stagger delay utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* ===== OVEN ARCH DECORATIVE ELEMENT ===== */
+
+.oven-arch {
+  position: relative;
+}
+
+.oven-arch::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 60px;
+  border-radius: 120px 120px 0 0;
+  border: 2px solid var(--border);
+  border-bottom: none;
+  opacity: 0.4;
+}
+
+.oven-arch-glow::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 40px;
+  border-radius: 80px 80px 0 0;
+  background: radial-gradient(ellipse at center bottom, var(--ember-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ===== SECTION DIVIDER WITH OVEN ARCH ===== */
+
+.section-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border) 20%,
+    var(--border) 40%,
+    transparent 50%,
+    var(--border) 60%,
+    var(--border) 80%,
+    transparent 100%
+  );
+}
+
+/* ===== RECIPE CARD STYLING ===== */
+
+.recipe-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.recipe-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--terracotta), var(--ember), var(--terracotta));
+  border-radius: 0 0 2px 2px;
+  opacity: 0.7;
+}
+
+/* ===== PRODUCTION LABEL / TAG ===== */
+
+.production-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-technical);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  border: 1px dashed var(--border);
+  padding: 4px 10px;
+  background: var(--parchment);
+}
+
+/* ===== WARM CARD HOVER ===== */
+
+.warm-hover {
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.warm-hover:hover {
+  border-color: var(--terracotta);
+  box-shadow: 
+    0 10px 28px -6px rgba(184, 71, 42, 0.12),
+    0 0 0 1px rgba(184, 71, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 3D Perspective card hover */
+.card-elevate {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.card-elevate:hover {
+  transform: translateY(-3px) scale(1.005);
+  box-shadow: 
+    0 16px 36px -8px rgba(44, 36, 23, 0.12),
+    0 0 20px -2px rgba(232, 147, 74, 0.12);
+  border-color: var(--terracotta);
+}
+
+/* Rotating artisan watermark seal */
+@keyframes rotateSeal {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.artisan-seal {
+  animation: rotateSeal 40s linear infinite;
+  transform-origin: center center;
+}
+
+/* Hearth Breathing Glow */
+@keyframes hearthBreathe {
+  0%, 100% {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 15px rgba(232, 147, 74, 0.2));
+  }
+  50% {
+    opacity: 0.75;
+    filter: drop-shadow(0 0 35px rgba(232, 147, 74, 0.45));
+  }
+}
+
+.animate-hearth {
+  animation: hearthBreathe 4s ease-in-out infinite;
+}
+
+/* Floating Ember Particle */
+@keyframes emberDrift {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.6;
+    transform: translateY(-40px) translateX(8px) scale(1.1);
+  }
+  100% {
+    transform: translateY(-90px) translateX(-4px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+.ember-particle {
+  animation: emberDrift 5s ease-in-out infinite;
+}
+
+/* ===== DECORATIVE CROSS / PLUS MARKS ===== */
+
+.corner-mark {
+  position: relative;
+}
+
+.corner-mark::after {
+  content: '+';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-family: var(--font-technical);
+  font-size: 10px;
+  color: var(--metallic);
+  opacity: 0.4;
+  line-height: 1;
+}
+
+/* ===== INLINE SVG OVEN ICON (reusable mini element) ===== */
+
+.mini-oven-icon {
+  display: inline-block;
+  width: 16px;
+  height: 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 16px 16px 0 0;
+  border-bottom: none;
+  opacity: 0.5;
 }
