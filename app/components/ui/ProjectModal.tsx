@@ -53,54 +53,60 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
         onClick={onClose}
       />
 
-      <div className="relative bg-background w-full max-w-4xl max-h-[90vh] rounded-xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="relative bg-card w-full max-w-4xl max-h-[90vh] rounded-sm shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
         
-        <div className="flex items-start justify-between p-5 border-b border-border bg-muted/30">
+        {/* Header */}
+        <div className="flex items-start justify-between p-5 border-b border-border bg-parchment">
           <div>
-            <h2 className="text-2xl font-bold text-foreground flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-terracotta font-semibold">
+                Ficha Técnica do Repositório
+              </span>
+            </div>
+            <h2 className="text-2xl font-serif font-bold text-foreground flex flex-wrap items-center gap-3">
               {project.name}
               {project.language && (
-                <span className="text-xs font-normal font-mono px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
+                <span className="text-xs font-mono font-medium px-2 py-0.5 rounded-sm bg-terracotta/10 text-terracotta border border-terracotta/20">
                   {project.language}
                 </span>
               )}
             </h2>
             <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground font-mono">
-              <span className="flex items-center gap-1"><Calendar size={12}/> {new Date(project.updatedAt).toLocaleDateString()}</span>
-              <span className="flex items-center gap-1"><Star size={12}/> {project.stars} stars</span>
+              <span className="flex items-center gap-1.5"><Calendar size={13} className="text-terracotta"/> {new Date(project.updatedAt).toLocaleDateString('pt-BR')}</span>
+              <span className="flex items-center gap-1.5"><Star size={13} className="text-ember"/> {project.stars} stars</span>
             </div>
           </div>
           
           <button 
             onClick={onClose} 
-            className="p-2 -mr-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-full transition-colors"
+            className="p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-sm transition-colors cursor-pointer"
           >
-            <X size={24} />
+            <X size={20} />
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6 md:p-8 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+        {/* Readme content */}
+        <div className="flex-1 overflow-y-auto p-6 md:p-8 bg-background">
           {project.readme ? (
-            <div className="prose dark:prose-invert prose-zinc max-w-none 
-              prose-headings:font-bold prose-headings:tracking-tight prose-headings:border-b prose-headings:border-border/50 prose-headings:pb-2
-              prose-h1:text-3xl prose-h1:mt-0 prose-h1:mb-6
-              prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
-              prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-h3:border-0
-              prose-h4:text-lg prose-h4:mt-4 prose-h4:border-0
-              prose-p:leading-7 prose-p:my-4
-              prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+            <div className="prose dark:prose-invert max-w-none 
+              prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-tight prose-headings:border-b prose-headings:border-border/60 prose-headings:pb-2
+              prose-h1:text-2xl prose-h1:mt-0 prose-h1:mb-5 prose-h1:text-foreground
+              prose-h2:text-xl prose-h2:mt-6 prose-h2:mb-3 prose-h2:text-foreground
+              prose-h3:text-lg prose-h3:mt-5 prose-h3:mb-2 prose-h3:border-0
+              prose-p:leading-relaxed prose-p:my-3 prose-p:text-foreground/90
+              prose-a:text-terracotta prose-a:underline hover:opacity-80 prose-a:font-medium
               prose-strong:text-foreground prose-strong:font-semibold
-              prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-code:bg-muted/60 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+              prose-code:text-terracotta prose-code:bg-parchment prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-sm prose-code:text-xs prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
               prose-pre:bg-transparent prose-pre:p-0 prose-pre:m-0
-              prose-blockquote:border-l-4 prose-blockquote:border-primary/40 prose-blockquote:bg-muted/50 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic
-              prose-ul:my-4 prose-ol:my-4 prose-li:my-1
-              prose-table:border-collapse prose-table:w-full prose-table:my-6
-              prose-thead:bg-muted
-              prose-th:border prose-th:border-border prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:font-semibold
-              prose-td:border prose-td:border-border prose-td:px-4 prose-td:py-2
+              prose-blockquote:border-l-4 prose-blockquote:border-terracotta prose-blockquote:bg-parchment/60 prose-blockquote:py-1.5 prose-blockquote:px-4 prose-blockquote:not-italic prose-blockquote:text-sm
+              prose-ul:my-3 prose-ol:my-3 prose-li:my-1
+              prose-table:border-collapse prose-table:w-full prose-table:my-5
+              prose-thead:bg-parchment
+              prose-th:border prose-th:border-border prose-th:px-3 prose-th:py-2 prose-th:text-left prose-th:font-semibold prose-th:font-mono prose-th:text-xs
+              prose-td:border prose-td:border-border prose-td:px-3 prose-td:py-2 prose-td:text-xs
               prose-tr:border-b prose-tr:border-border
-              prose-img:rounded-lg prose-img:border prose-img:border-border prose-img:shadow-md prose-img:my-6 prose-img:mx-auto
-              prose-hr:border-border prose-hr:my-8"
+              prose-img:rounded-sm prose-img:border prose-img:border-border prose-img:shadow-sm prose-img:my-4 prose-img:mx-auto
+              prose-hr:border-border prose-hr:my-6"
             >
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
@@ -111,9 +117,9 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                     const language = match ? match[1] : '';
                     
                     return !inline && language ? (
-                      <div className="my-4 rounded-lg overflow-hidden border border-border shadow-sm">
-                        <div className="bg-muted/80 px-4 py-2 border-b border-border flex items-center justify-between">
-                          <span className="text-xs font-mono text-muted-foreground uppercase">{language}</span>
+                      <div className="my-4 rounded-sm overflow-hidden border border-border shadow-xs">
+                        <div className="bg-parchment px-4 py-1.5 border-b border-border flex items-center justify-between">
+                          <span className="text-[11px] font-mono text-terracotta font-semibold uppercase">{language}</span>
                         </div>
                         <SyntaxHighlighter
                           style={isDark ? oneDark : oneLight}
@@ -122,13 +128,13 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                           customStyle={{
                             margin: 0,
                             borderRadius: 0,
-                            background: isDark ? '#1e1e1e' : '#fafafa',
-                            fontSize: '0.875rem',
+                            background: isDark ? '#1A1410' : '#FAF6F1',
+                            fontSize: '0.85rem',
                             padding: '1rem',
                           }}
                           codeTagProps={{
                             style: {
-                              fontFamily: 'var(--font-mono), ui-monospace, monospace',
+                              fontFamily: 'var(--font-mono), monospace',
                             }
                           }}
                           {...props}
@@ -152,7 +158,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                         {...props}
                       >
                         {children}
-                        {isExternal && <ExternalLink className="inline ml-1 w-3 h-3" />}
+                        {isExternal && <ExternalLink className="inline ml-1 w-3 h-3 text-terracotta" />}
                       </a>
                     );
                   },
@@ -194,27 +200,28 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-20 text-muted-foreground text-center">
-              <GitFork size={48} className="mb-4 opacity-20" />
-              <p className="text-lg font-medium">Readme não disponível</p>
-              <p className="text-sm">Este projeto não possui documentação detalhada no repositório.</p>
+              <GitFork size={40} className="mb-4 opacity-30 text-terracotta" />
+              <p className="text-base font-serif font-bold text-foreground">Documentação não disponível</p>
+              <p className="text-xs font-mono mt-1">Este repositório não possui um arquivo README detalhado.</p>
             </div>
           )}
         </div>
 
-        <div className="p-4 border-t border-border bg-muted/30 flex justify-end gap-3 z-10">
+        {/* Footer */}
+        <div className="p-4 border-t border-border bg-parchment flex justify-end gap-3 z-10">
           <button 
             onClick={onClose} 
-            className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors"
+            className="px-4 py-2 text-xs font-mono font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-sm transition-colors cursor-pointer"
           >
             Fechar
           </button>
           <Link 
             href={project.url} 
             target="_blank"
-            className="flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:opacity-90 transition-opacity shadow-sm"
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground text-xs font-mono font-medium rounded-sm hover:opacity-90 transition-opacity shadow-xs cursor-pointer"
           >
-            <Github size={18} />
-            Ver código fonte
+            <Github size={15} />
+            <span>Ver código fonte</span>
           </Link>
         </div>
       </div>
