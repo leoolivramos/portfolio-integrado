@@ -1,9 +1,8 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
-import { Github } from 'lucide-react';
+import { Github, Loader2 } from 'lucide-react';
 import { useState } from 'react';
-import { Loader2 } from 'lucide-react';
 
 export function SignInButton() {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,12 +21,12 @@ export function SignInButton() {
     <button
       onClick={handleLogin}
       disabled={isLoading}
-      className="flex items-center gap-2 font-medium py-2.5 px-5 rounded-lg transition-all shadow-sm disabled:opacity-70 disabled:cursor-not-allowed bg-[#24292F] hover:bg-[#24292F]/90 text-white dark:bg-white dark:text-[#24292F] dark:hover:bg-white/90 dark:border dark:border-border"
+      className="inline-flex items-center gap-2.5 font-medium py-2.5 px-4 rounded-sm transition-all text-xs font-mono tracking-tight disabled:opacity-70 disabled:cursor-not-allowed bg-foreground text-background hover:opacity-90 border border-border shadow-xs cursor-pointer"
     >
       {isLoading ? (
-        <Loader2 size={20} className="animate-spin" />
+        <Loader2 size={16} className="animate-spin" />
       ) : (
-        <Github size={20} />
+        <Github size={16} />
       )}
       <span>Entrar com GitHub</span>
     </button>

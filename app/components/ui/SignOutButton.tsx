@@ -7,10 +7,10 @@ export function SignOutButton() {
   return (
     <button
       onClick={() => signOut()}
-      className="text-xs text-muted-foreground hover:text-red-500 flex items-center gap-1 transition-colors"
+      className="text-xs font-mono text-muted-foreground hover:text-terracotta flex items-center gap-1 transition-colors cursor-pointer"
     >
       <LogOut size={12} />
-      Sair
+      <span>Encerrar sessão</span>
     </button>
   );
 }
