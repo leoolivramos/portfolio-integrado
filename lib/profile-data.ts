@@ -53,6 +53,19 @@ export const STATIC_PROFILE = {
             "Mentoria para novos membros da equipe.",
             "Atuação como Product Owner em projetos."
         ]
+    },
+    {
+        role: "Analista e desenvolvedor Projeto NIESA",
+        company: "Núcleo Interdisciplinar de Estudos em Saneamento Ambiental - UFMT ()",
+        period: "Fevereiro 2026 - Presente",
+        responsibilities: [
+            "Desenvolvimento de soluções web.",
+            "Levantamento de requisitos com stakeholders.",
+            "Interação direta com clientes para levantamento de requisitos.",
+            "Manutenção de sistema em Java Spring e Angular.",
+            "Contato com o Ministério Público do Estado para implantação de uma versão interna do sistema.",
+            "Uso de tecnologias de georeferenciamento e espacialização de dados GeoJSON, Leaflet, PostGIS e PostgreSQL.",
+        ]
     }
   ],
   professional_summary: "Desenvolvedor Full Stack com forte viés em Engenharia de Dados. Atualmente estagiário na CGE-MT focando em modernização de sistemas governamentais, utilizando Java, Spring Boot e Ecossistema Big Data."
