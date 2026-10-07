@@ -80,7 +80,7 @@ export async function POST(req: Request) {
     return new StreamingTextResponse(stream);
 
   } catch (error: any) {
-    console.error("🔴 ERRO API CHAT:", error);
+    console.error("[API Chat Error]:", error);
     return new Response(JSON.stringify({ error: 'Erro ao processar mensagem.' }), { 
       status: 500 
     });
