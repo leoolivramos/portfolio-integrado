@@ -13,13 +13,13 @@ import { useTheme } from 'next-themes';
 import { motion } from 'framer-motion';
 
 /* Artisanal palette for charts */
-const COLORS = ['#B8472A', '#5B7B3A', '#E8934A', '#A0522D', '#8C7A64']; 
+const COLORS = ['#B94F35', '#65704B', '#D97736', '#873A2A', '#8A8177']; 
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
       <div 
-        className="bg-card border border-border p-3 rounded-sm shadow-xl text-xs"
+        className="bg-card border border-border p-3 rounded-xl shadow-xl text-xs"
         style={{ fontFamily: 'var(--font-technical)' }}
       >
         <p className="font-bold mb-1" style={{ fontFamily: 'var(--font-body)' }}>{label}</p>
@@ -33,20 +33,20 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 function MetricsModal({ onClose }: { onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-card border border-border w-full max-w-lg rounded-sm shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="bg-card border border-border w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
         
-        <div className="flex justify-between items-center p-4 border-b border-border bg-parchment">
-          <h3 className="font-semibold flex items-center gap-2" style={{ fontFamily: 'var(--font-editorial)' }}>
+        <div className="flex justify-between items-center p-5 border-b border-border bg-parchment">
+          <h3 className="font-semibold flex items-center gap-2 text-foreground" style={{ fontFamily: 'var(--font-editorial)' }}>
             <Info size={18} className="text-terracotta" />
             Como as métricas são calculadas?
           </h3>
-          <button onClick={onClose} className="p-1 hover:bg-muted rounded-sm transition-colors">
-            <X size={20} className="text-muted-foreground" />
+          <button onClick={onClose} className="p-1.5 hover:bg-muted rounded-lg transition-colors cursor-pointer">
+            <X size={18} className="text-muted-foreground" />
           </button>
         </div>
-        <div className="p-6 space-y-6 text-sm overflow-y-auto max-h-[70vh]">
-          <div className="flex gap-3">
-            <div className="p-2 bg-terracotta/10 rounded-sm h-fit shrink-0 border border-terracotta/20">
+        <div className="p-6 space-y-5 text-sm overflow-y-auto max-h-[70vh]">
+          <div className="flex gap-3.5">
+            <div className="p-2.5 bg-terracotta/10 rounded-xl h-fit shrink-0 border border-terracotta/20">
               <Activity size={16} className="text-terracotta" />
             </div>
             <div>
@@ -57,8 +57,8 @@ function MetricsModal({ onClose }: { onClose: () => void }) {
             </div>
           </div>
 
-          <div className="flex gap-3">
-            <div className="p-2 bg-olive/10 rounded-sm h-fit shrink-0 border border-olive/20">
+          <div className="flex gap-3.5">
+            <div className="p-2.5 bg-olive/10 rounded-xl h-fit shrink-0 border border-olive/20">
               <Code2 size={16} className="text-olive" />
             </div>
             <div>
@@ -69,37 +69,37 @@ function MetricsModal({ onClose }: { onClose: () => void }) {
             </div>
           </div>
 
-          <div className="flex gap-3">
-            <div className="p-2 bg-ember/10 rounded-sm h-fit shrink-0 border border-ember/20">
-              <RadarIcon size={16} className="text-ember" />
+          <div className="flex gap-3.5">
+            <div className="p-2.5 bg-terracotta/10 rounded-xl h-fit shrink-0 border border-terracotta/20">
+              <RadarIcon size={16} className="text-terracotta" />
             </div>
             <div className="flex-1">
               <h4 className="font-semibold text-foreground mb-2 text-sm" style={{ fontFamily: 'var(--font-editorial)' }}>Perfil de Engenharia (Radar)</h4>
               
               <div className="grid grid-cols-1 gap-2">
-                  <p className="text-muted-foreground text-xs leading-tight">
+                  <p className="text-muted-foreground text-xs leading-relaxed">
                     <strong className="text-foreground">Velocidade:</strong> Ritmo atual baseado nos últimos 30 dias.
                   </p>
-                  <p className="text-muted-foreground text-xs leading-tight">
+                  <p className="text-muted-foreground text-xs leading-relaxed">
                     <strong className="text-foreground">Volume:</strong> Soma total de commits desde o início da carreira.
                   </p>
-                  <p className="text-muted-foreground text-xs leading-tight">
-                    <strong className="text-foreground">Atividade:</strong> Frequência média de commits.<br/>
+                  <p className="text-muted-foreground text-xs leading-relaxed">
+                    <strong className="text-foreground">Atividade:</strong> Frequência média de commits.
                   </p>
-                  <p className="text-muted-foreground text-xs leading-tight">
+                  <p className="text-muted-foreground text-xs leading-relaxed">
                     <strong className="text-foreground">Consistência:</strong> Regularidade sem intervalos longos.
                   </p>
-                  <p className="text-muted-foreground text-xs leading-tight">
+                  <p className="text-muted-foreground text-xs leading-relaxed">
                     <strong className="text-foreground">Qualidade:</strong> Saúde dos projetos. Avalia READMEs, descrições claras e boas práticas de versionamento e documentação.
                   </p>
               </div>
             </div>
           </div>
-      </div>
+        </div>
         <div className="p-4 bg-parchment border-t border-border flex justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-foreground text-background text-sm font-medium rounded-sm hover:opacity-90 transition-opacity"
+            className="px-5 py-2 bg-foreground text-background text-xs font-mono font-medium rounded-xl hover:opacity-90 transition-opacity cursor-pointer"
           >
             Entendi
           </button>
@@ -146,7 +146,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
           </p>
           <button
             onClick={() => setShowInfo(true)}
-            className="flex items-center gap-1.5 text-xs font-mono font-medium text-muted-foreground hover:text-terracotta transition-colors bg-parchment px-3 py-1.5 rounded-sm border border-border hover:border-terracotta/30 cursor-pointer shadow-2xs shrink-0"
+            className="flex items-center gap-1.5 text-xs font-mono font-medium text-muted-foreground hover:text-terracotta transition-colors bg-parchment px-3 py-1.5 rounded-lg border border-border hover:border-terracotta/30 cursor-pointer shadow-xs shrink-0"
           >
             <Info size={13} className="text-terracotta" />
             <span>Metodologia</span>
@@ -165,7 +165,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
       >
         
         {activityData.length > 0 && (
-          <div className="md:col-span-2 bg-card border border-border rounded-sm p-6 h-[320px] relative overflow-hidden card-elevate">
+          <div className="md:col-span-2 bg-card border border-border rounded-2xl p-6 h-[320px] relative overflow-hidden card-elevate">
             {/* Top accent */}
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-terracotta/40 via-ember/30 to-transparent" />
             <div className="flex items-center justify-between mb-4">
@@ -175,7 +175,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
                 <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
                 Cadência de Commits (Últimos 90 Dias)
               </h3>
-              <span className="text-[10px] font-mono text-muted-foreground bg-parchment px-2 py-0.5 rounded-sm border border-border">
+              <span className="text-[10px] font-mono text-muted-foreground bg-parchment px-2.5 py-0.5 rounded-md border border-border">
                 STREAM CONTÍNUA
               </span>
             </div>
@@ -211,7 +211,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
         )}
 
         {languagesData.length > 0 && (
-          <div className="bg-card border border-border rounded-sm p-6 h-[320px] flex flex-col relative overflow-hidden card-elevate">
+          <div className="bg-card border border-border rounded-2xl p-6 h-[320px] flex flex-col relative overflow-hidden card-elevate">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-olive/40 via-transparent to-transparent" />
             <h3 
               className="font-mono text-xs text-warm-brown uppercase tracking-widest font-semibold mb-2 flex items-center gap-2"
@@ -251,12 +251,12 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
         )}
 
         {radarData.length > 0 && (
-          <div className="bg-card border border-border rounded-sm p-6 h-[320px] w-full relative overflow-hidden card-elevate flex flex-col">
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-ember/40 via-transparent to-transparent" />
+          <div className="bg-card border border-border rounded-2xl p-6 h-[320px] w-full relative overflow-hidden card-elevate flex flex-col">
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-terracotta/40 via-transparent to-transparent" />
             <h3 
               className="font-mono text-xs text-warm-brown uppercase tracking-widest font-semibold mb-2 flex items-center gap-2"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-ember" />
+              <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
               Perfil de Engenharia & Equilíbrio
             </h3>
             <ResponsiveContainer width="100%" height="100%">

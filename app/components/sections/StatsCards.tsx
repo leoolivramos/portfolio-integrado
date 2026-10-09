@@ -69,7 +69,7 @@ function StatCard({
 }) {
   return (
     <motion.div 
-      className="relative bg-card border border-border rounded-sm p-6 card-elevate group overflow-hidden flex flex-col justify-between"
+      className="relative bg-card border border-border rounded-2xl p-6 card-elevate group overflow-hidden flex flex-col justify-between"
       custom={index}
       variants={cardVariant}
       initial="hidden"
@@ -86,8 +86,8 @@ function StatCard({
         >
           {tag}
         </span>
-        <div className="w-7 h-7 rounded-sm bg-parchment border border-border flex items-center justify-center text-terracotta group-hover:scale-110 transition-transform">
-          <Icon size={14} className="text-terracotta" />
+        <div className="w-8 h-8 rounded-xl bg-parchment border border-border flex items-center justify-center text-terracotta group-hover:scale-105 transition-transform">
+          <Icon size={15} className="text-terracotta" />
         </div>
       </div>
 
@@ -109,13 +109,13 @@ function StatCard({
       </div>
 
       {/* Label & Status */}
-      <div className="pt-2 border-t border-border/40 flex items-center justify-between text-xs text-muted-foreground font-sans">
+      <div className="pt-3 border-t border-border/40 flex items-center justify-between text-xs text-muted-foreground font-sans">
         <span className="font-medium text-foreground/80">{label}</span>
         <span className="w-1.5 h-1.5 rounded-full bg-olive animate-pulse" />
       </div>
 
       {/* Bottom corner draft crossmark */}
-      <div className="absolute bottom-1.5 right-1.5 opacity-20 pointer-events-none font-mono text-[9px] text-terracotta">
+      <div className="absolute bottom-2 right-2 opacity-20 pointer-events-none font-mono text-[9px] text-terracotta">
         +
       </div>
     </motion.div>
