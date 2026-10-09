@@ -53,10 +53,10 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
         onClick={onClose}
       />
 
-      <div className="relative bg-card w-full max-w-4xl max-h-[90vh] rounded-sm shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="relative bg-card w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
         
         {/* Header */}
-        <div className="flex items-start justify-between p-5 border-b border-border bg-parchment">
+        <div className="flex items-start justify-between p-5 md:p-6 border-b border-border bg-parchment">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-[10px] font-mono uppercase tracking-widest text-terracotta font-semibold">
@@ -66,7 +66,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             <h2 className="text-2xl font-serif font-bold text-foreground flex flex-wrap items-center gap-3">
               {project.name}
               {project.language && (
-                <span className="text-xs font-mono font-medium px-2 py-0.5 rounded-sm bg-terracotta/10 text-terracotta border border-terracotta/20">
+                <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-md bg-terracotta/10 text-terracotta border border-terracotta/20">
                   {project.language}
                 </span>
               )}
@@ -79,7 +79,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
           
           <button 
             onClick={onClose} 
-            className="p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-sm transition-colors cursor-pointer"
+            className="p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded-lg transition-colors cursor-pointer"
           >
             <X size={20} />
           </button>
@@ -96,7 +96,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               prose-p:leading-relaxed prose-p:my-3 prose-p:text-foreground/90
               prose-a:text-terracotta prose-a:underline hover:opacity-80 prose-a:font-medium
               prose-strong:text-foreground prose-strong:font-semibold
-              prose-code:text-terracotta prose-code:bg-parchment prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-sm prose-code:text-xs prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+              prose-code:text-terracotta prose-code:bg-parchment prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-xs prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
               prose-pre:bg-transparent prose-pre:p-0 prose-pre:m-0
               prose-blockquote:border-l-4 prose-blockquote:border-terracotta prose-blockquote:bg-parchment/60 prose-blockquote:py-1.5 prose-blockquote:px-4 prose-blockquote:not-italic prose-blockquote:text-sm
               prose-ul:my-3 prose-ol:my-3 prose-li:my-1
@@ -105,7 +105,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               prose-th:border prose-th:border-border prose-th:px-3 prose-th:py-2 prose-th:text-left prose-th:font-semibold prose-th:font-mono prose-th:text-xs
               prose-td:border prose-td:border-border prose-td:px-3 prose-td:py-2 prose-td:text-xs
               prose-tr:border-b prose-tr:border-border
-              prose-img:rounded-sm prose-img:border prose-img:border-border prose-img:shadow-sm prose-img:my-4 prose-img:mx-auto
+              prose-img:rounded-xl prose-img:border prose-img:border-border prose-img:shadow-sm prose-img:my-4 prose-img:mx-auto
               prose-hr:border-border prose-hr:my-6"
             >
               <ReactMarkdown
@@ -117,7 +117,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                     const language = match ? match[1] : '';
                     
                     return !inline && language ? (
-                      <div className="my-4 rounded-sm overflow-hidden border border-border shadow-xs">
+                      <div className="my-4 rounded-xl overflow-hidden border border-border shadow-xs">
                         <div className="bg-parchment px-4 py-1.5 border-b border-border flex items-center justify-between">
                           <span className="text-[11px] font-mono text-terracotta font-semibold uppercase">{language}</span>
                         </div>
@@ -208,17 +208,17 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-border bg-parchment flex justify-end gap-3 z-10">
+        <div className="p-4 md:p-5 border-t border-border bg-parchment flex justify-end gap-3 z-10">
           <button 
             onClick={onClose} 
-            className="px-4 py-2 text-xs font-mono font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-sm transition-colors cursor-pointer"
+            className="px-4 py-2 text-xs font-mono font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-xl transition-colors cursor-pointer"
           >
             Fechar
           </button>
           <Link 
             href={project.url} 
             target="_blank"
-            className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground text-xs font-mono font-medium rounded-sm hover:opacity-90 transition-opacity shadow-xs cursor-pointer"
+            className="flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground text-xs font-mono font-medium rounded-xl hover:opacity-90 transition-opacity shadow-xs cursor-pointer"
           >
             <Github size={15} />
             <span>Ver código fonte</span>

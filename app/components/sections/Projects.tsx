@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Terminal, FileText, Grid3x3, List, Info, ArrowUpRight, GitCommit, CheckCircle2 } from 'lucide-react';
+import { Terminal, Grid3x3, List, Info, ArrowUpRight, GitCommit, CheckCircle2 } from 'lucide-react';
 import { SectionTitle } from '../ui/SectionTitle';
 import { Project } from '../../types';
 import { ProjectModal } from '../ui/ProjectModal';
@@ -43,19 +43,19 @@ export function Projects({ data }: { data: Project[] }) {
           Sistemas e arquiteturas desenvolvidos com matérias-primas modernas, sincronizados diretamente do GitHub e avaliados pelo índice de maturação técnica.
         </p>
 
-        <div className="flex items-center gap-2 self-stretch md:self-auto justify-between md:justify-end">
+        <div className="flex items-center gap-2.5 self-stretch md:self-auto justify-between md:justify-end">
           <button
             onClick={() => setShowScoreInfo(true)}
-            className="flex items-center gap-1.5 text-xs font-mono font-medium text-muted-foreground hover:text-terracotta transition-colors bg-parchment px-3 py-1.5 rounded-sm border border-border hover:border-terracotta/40 cursor-pointer shadow-2xs"
+            className="flex items-center gap-1.5 text-xs font-mono font-medium text-muted-foreground hover:text-terracotta transition-colors bg-parchment px-3 py-1.5 rounded-lg border border-border hover:border-terracotta/40 cursor-pointer shadow-xs"
           >
             <Info size={13} className="text-terracotta" />
             <span>Como?</span>
           </button>
 
-          <div className="flex gap-1 bg-parchment p-1 rounded-sm border border-border">
+          <div className="flex gap-1 bg-parchment p-1 rounded-xl border border-border">
             <button
               onClick={() => setViewMode('grid')}
-              className={`p-1.5 rounded-sm transition-all cursor-pointer ${
+              className={`p-1.5 rounded-lg transition-all cursor-pointer ${
                 viewMode === 'grid' 
                   ? 'bg-card text-foreground shadow-xs border border-border font-bold' 
                   : 'text-muted-foreground hover:text-foreground'
@@ -66,7 +66,7 @@ export function Projects({ data }: { data: Project[] }) {
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`p-1.5 rounded-sm transition-all cursor-pointer ${
+              className={`p-1.5 rounded-lg transition-all cursor-pointer ${
                 viewMode === 'list' 
                   ? 'bg-card text-foreground shadow-xs border border-border font-bold' 
                   : 'text-muted-foreground hover:text-foreground'
@@ -95,8 +95,8 @@ export function Projects({ data }: { data: Project[] }) {
             <motion.div 
               key={repo.id} 
               onClick={() => setSelectedProject(repo)}
-              className={`relative block bg-card border border-border rounded-sm card-elevate cursor-pointer group overflow-hidden ${
-                viewMode === 'grid' ? 'p-5 flex flex-col justify-between h-full' : 'p-4 md:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4'
+              className={`relative block bg-card border border-border rounded-2xl card-elevate cursor-pointer group overflow-hidden ${
+                viewMode === 'grid' ? 'p-6 flex flex-col justify-between h-full' : 'p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-5'
               }`}
               custom={idx}
               variants={cardVariant}
@@ -109,9 +109,9 @@ export function Projects({ data }: { data: Project[] }) {
 
               <div className={viewMode === 'list' ? 'flex-1 min-w-0' : ''}>
                 {/* Header: Title and Language/Status Badge */}
-                <div className="flex items-start justify-between gap-2 mb-2">
+                <div className="flex items-start justify-between gap-3 mb-2.5">
                   <div>
-                    <span className="text-[10px] font-mono text-terracotta uppercase tracking-wider block font-semibold mb-0.5">
+                    <span className="text-[10px] font-mono text-terracotta uppercase tracking-wider block font-semibold mb-1">
                       {repo.language ? `${repo.language}` : 'Repositório Autoral'}
                     </span>
                     <h3 
@@ -123,7 +123,7 @@ export function Projects({ data }: { data: Project[] }) {
                   </div>
 
                   {/* Status Badge — Professional Craft Framing */}
-                  <span className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-sm border font-semibold
+                  <span className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-md border font-semibold shrink-0
                     ${isHot 
                       ? 'bg-ember/10 text-ember border-ember/30' 
                       : isConsistent 
@@ -143,9 +143,9 @@ export function Projects({ data }: { data: Project[] }) {
                 </p>
               </div>
 
-              {/* Technical Calibration & Metrics — Sophisticated, Non-Gamified */}
+              {/* Technical Calibration & Metrics */}
               {repo.projectScore && (
-                <div className={viewMode === 'list' ? 'md:w-80 shrink-0 space-y-2' : 'mt-4 pt-3 border-t border-border/60 space-y-2.5'}>
+                <div className={viewMode === 'list' ? 'md:w-80 shrink-0 space-y-2' : 'mt-4 pt-3.5 border-t border-border/60 space-y-2.5'}>
                   {/* Calibrated Meter Header */}
                   <div className="flex justify-between items-center text-[11px] font-mono">
                     <span className="text-muted-foreground uppercase tracking-wider flex items-center gap-1">
@@ -158,9 +158,9 @@ export function Projects({ data }: { data: Project[] }) {
                   </div>
                   
                   {/* Fine Precision Gauge (Hairline Craft Meter) */}
-                  <div className="h-1.5 w-full bg-parchment rounded-sm overflow-hidden border border-border/40 relative">
+                  <div className="h-1.5 w-full bg-parchment rounded-full overflow-hidden border border-border/40 relative">
                     <div 
-                      className={`h-full transition-all duration-1000 ease-out rounded-sm
+                      className={`h-full transition-all duration-1000 ease-out rounded-full
                         ${score >= 80 ? 'bg-gradient-to-r from-terracotta to-ember' : 
                           score >= 60 ? 'bg-olive' : 
                           'bg-warm-brown'}`} 
@@ -190,7 +190,7 @@ export function Projects({ data }: { data: Project[] }) {
         <div className="flex justify-center mt-10">
           <button
             onClick={() => setVisibleCount(prev => prev + 3)}
-            className="px-6 py-2.5 bg-card hover:bg-parchment text-foreground font-medium text-xs font-mono tracking-wider uppercase rounded-sm border border-border transition-all shadow-xs hover:border-terracotta/40 cursor-pointer flex items-center gap-2"
+            className="px-6 py-2.5 bg-card hover:bg-parchment text-foreground font-medium text-xs font-mono tracking-wider uppercase rounded-xl border border-border transition-all shadow-xs hover:border-terracotta/40 cursor-pointer flex items-center gap-2"
           >
             <span>Ver Mais Criações do Acervo</span>
             <span className="text-terracotta font-bold">+</span>
