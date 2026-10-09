@@ -164,8 +164,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
 
       {/* Command Palette */}
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-xl p-4">
-        <div className="rounded-sm border border-border bg-card shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150">
-          <div className="flex items-center border-b border-border px-4 py-1 bg-parchment">
+        <div className="rounded-2xl border border-border bg-card shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150">
+          <div className="flex items-center border-b border-border px-4 py-1.5 bg-parchment">
             <Terminal size={16} className="mr-3 text-terracotta shrink-0" />
             <input
               type="text"
@@ -198,7 +198,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                         <button
                           key={cmd.id}
                           onClick={cmd.action}
-                          className="w-full relative flex cursor-pointer select-none items-center rounded-sm px-3 py-2 text-xs font-sans outline-none hover:bg-parchment hover:text-foreground text-foreground/90 transition-colors text-left"
+                          className="w-full relative flex cursor-pointer select-none items-center rounded-xl px-3 py-2 text-xs font-sans outline-none hover:bg-parchment hover:text-foreground text-foreground/90 transition-colors text-left"
                         >
                           <Icon className={`mr-2.5 h-3.5 w-3.5 flex-shrink-0 ${copied && cmd.id === 'copy-email' ? 'text-olive' : 'text-terracotta'}`} />
                           <span className="font-medium">{cmd.label}</span>
@@ -212,7 +212,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
           </div>
 
           {/* Footer hint */}
-          <div className="border-t border-border bg-parchment px-4 py-2 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
+          <div className="border-t border-border bg-parchment px-4 py-2.5 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
             <span>Laboratório de Navegação Rápida</span>
             <span>ESC para fechar</span>
           </div>

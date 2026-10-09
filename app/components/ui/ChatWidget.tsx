@@ -44,12 +44,12 @@ export function ChatWidget() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
 
       {isOpen && (
-        <div className="mb-4 w-[90vw] sm:w-[390px] h-[72vh] sm:h-[520px] max-h-[calc(100dvh-120px)] bg-card border border-border rounded-sm shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
+        <div className="mb-4 w-[90vw] sm:w-[390px] h-[72vh] sm:h-[520px] max-h-[calc(100dvh-120px)] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
 
           {/* Header */}
           <div className="p-4 flex justify-between items-center bg-parchment border-b border-border">
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-sm bg-terracotta/10 border border-terracotta/20 flex items-center justify-center text-terracotta">
+              <div className="w-7 h-7 rounded-lg bg-terracotta/10 border border-terracotta/20 flex items-center justify-center text-terracotta">
                 <Sparkles size={14} />
               </div>
               <div>
@@ -62,7 +62,7 @@ export function ChatWidget() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-muted-foreground hover:text-foreground p-1 rounded-sm hover:bg-muted transition-colors cursor-pointer"
+              className="text-muted-foreground hover:text-foreground p-1.5 rounded-lg hover:bg-muted transition-colors cursor-pointer"
             >
               <X size={18} />
             </button>
@@ -75,12 +75,12 @@ export function ChatWidget() {
                 key={m.id}
                 className={`flex gap-2.5 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}
               >
-                <div className={`w-7 h-7 rounded-sm flex items-center justify-center shrink-0 border border-border font-mono text-xs
+                <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border border-border font-mono text-xs
                   ${m.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-parchment text-terracotta'}`}>
                   {m.role === 'user' ? <User size={13} /> : <Bot size={13} />}
                 </div>
 
-                <div className={`px-3.5 py-2.5 rounded-sm text-xs leading-relaxed max-w-[85%] shadow-xs overflow-hidden
+                <div className={`px-4 py-2.5 rounded-xl text-xs leading-relaxed max-w-[85%] shadow-xs overflow-hidden
                   ${m.role === 'user'
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-card border border-border text-foreground'}`}>
@@ -104,11 +104,11 @@ export function ChatWidget() {
                         code: ({children, className, ...props}) => {
                           const isInline = !className?.includes('language-');
                           return isInline ? (
-                            <code className="bg-parchment px-1.5 py-0.5 rounded-sm text-[11px] font-mono border border-border text-terracotta">
+                            <code className="bg-parchment px-1.5 py-0.5 rounded-md text-[11px] font-mono border border-border text-terracotta">
                               {children}
                             </code>
                           ) : (
-                            <div className="my-2 rounded-sm overflow-hidden border border-border bg-charcoal text-cream">
+                            <div className="my-2 rounded-xl overflow-hidden border border-border bg-charcoal text-cream">
                               <div className="bg-black/30 px-2.5 py-1 border-b border-border text-[9px] font-mono text-muted-foreground uppercase">
                                 Snippet
                               </div>
@@ -129,10 +129,10 @@ export function ChatWidget() {
 
             {isLoading && (
               <div className="flex gap-2.5 items-center">
-                <div className="w-7 h-7 rounded-sm bg-parchment border border-border text-terracotta flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-parchment border border-border text-terracotta flex items-center justify-center shrink-0">
                   <Bot size={13} />
                 </div>
-                <div className="bg-card border border-border px-3 py-2 rounded-sm shadow-xs flex items-center gap-1.5">
+                <div className="bg-card border border-border px-3.5 py-2.5 rounded-xl shadow-xs flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 bg-terracotta rounded-full animate-bounce"></span>
                   <span className="w-1.5 h-1.5 bg-terracotta rounded-full animate-bounce delay-100"></span>
                   <span className="w-1.5 h-1.5 bg-terracotta rounded-full animate-bounce delay-200"></span>
@@ -144,12 +144,12 @@ export function ChatWidget() {
 
           {/* Quick Suggestions */}
           {messages.length === 1 && !isLoading && (
-            <div className="px-3 pb-2 pt-1 flex gap-2 overflow-x-auto bg-background/50 border-t border-border/40">
+            <div className="px-3 pb-2.5 pt-1.5 flex gap-2 overflow-x-auto bg-background/50 border-t border-border/40">
               {suggestions.map((suggestion, index) => (
                 <button
                   key={index}
                   onClick={() => handleSuggestionClick(suggestion)}
-                  className="whitespace-nowrap flex items-center gap-1.5 text-[11px] font-mono bg-parchment border border-border hover:border-terracotta hover:text-terracotta transition-colors rounded-sm px-2.5 py-1 text-muted-foreground cursor-pointer"
+                  className="whitespace-nowrap flex items-center gap-1.5 text-[11px] font-mono bg-parchment border border-border hover:border-terracotta hover:text-terracotta transition-colors rounded-lg px-2.5 py-1 text-muted-foreground cursor-pointer"
                 >
                   {suggestion}
                   <ArrowRight size={10} className="opacity-50" />
@@ -161,7 +161,7 @@ export function ChatWidget() {
           {/* Input Form */}
           <form onSubmit={handleSubmit} className="p-3 bg-parchment border-t border-border flex gap-2">
             <input
-              className="flex-1 bg-background border border-border focus:border-primary rounded-sm px-3 py-2 text-xs font-sans outline-none transition-all placeholder:text-muted-foreground text-foreground"
+              className="flex-1 bg-background border border-border focus:border-primary rounded-xl px-3.5 py-2 text-xs font-sans outline-none transition-all placeholder:text-muted-foreground text-foreground"
               value={input}
               onChange={handleInputChange}
               placeholder="Pergunte sobre código, stack ou arquitetura..."
@@ -169,7 +169,7 @@ export function ChatWidget() {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="bg-primary text-primary-foreground p-2 rounded-sm hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-xs flex items-center justify-center w-8 h-8 cursor-pointer"
+              className="bg-primary text-primary-foreground p-2 rounded-xl hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-xs flex items-center justify-center w-8.5 h-8.5 cursor-pointer"
             >
               {isLoading ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
             </button>
@@ -180,10 +180,10 @@ export function ChatWidget() {
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative h-12 w-12 rounded-sm bg-primary text-primary-foreground shadow-lg hover:opacity-95 transition-all flex items-center justify-center border border-border cursor-pointer"
+        className="group relative h-13 w-13 rounded-2xl bg-primary text-primary-foreground shadow-xl hover:opacity-95 transition-all flex items-center justify-center border border-border cursor-pointer"
         aria-label="Abrir assistente IA"
       >
-        <div className="absolute inset-0 rounded-sm bg-terracotta/20 animate-ping opacity-0 group-hover:opacity-100 duration-1000 pointer-events-none" />
+        <div className="absolute inset-0 rounded-2xl bg-terracotta/20 animate-ping opacity-0 group-hover:opacity-100 duration-1000 pointer-events-none" />
         {isOpen ? <X size={20} /> : <MessageSquare size={20} />}
 
         {!isOpen && (
