@@ -31,7 +31,7 @@ export function SectionTitle({ title, icon: Icon, id, subtitle }: SectionTitlePr
 
         {subtitle && (
           <p 
-            className="mt-1 text-muted-foreground"
+            className="mt-1.5 text-muted-foreground"
             style={{ fontFamily: 'var(--font-technical)', fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}
           >
             {subtitle}
@@ -39,7 +39,7 @@ export function SectionTitle({ title, icon: Icon, id, subtitle }: SectionTitlePr
         )}
 
         {/* Bottom accent line */}
-        <div className="mt-4 h-0.5 w-16 bg-terracotta/40 rounded-full" />
+        <div className="mt-4 h-0.5 w-16 bg-terracotta/35 rounded-full" />
       </div>
     </motion.div>
   );
