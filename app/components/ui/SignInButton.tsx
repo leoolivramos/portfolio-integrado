@@ -21,12 +21,12 @@ export function SignInButton() {
     <button
       onClick={handleLogin}
       disabled={isLoading}
-      className="inline-flex items-center gap-2.5 font-medium py-2.5 px-4 rounded-sm transition-all text-xs font-mono tracking-tight disabled:opacity-70 disabled:cursor-not-allowed bg-foreground text-background hover:opacity-90 border border-border shadow-xs cursor-pointer"
+      className="inline-flex items-center gap-2.5 font-medium py-2.5 px-4.5 rounded-xl transition-all text-xs font-mono tracking-tight disabled:opacity-70 disabled:cursor-not-allowed bg-foreground text-background hover:opacity-90 border border-border shadow-xs cursor-pointer"
     >
       {isLoading ? (
-        <Loader2 size={16} className="animate-spin" />
+        <Loader2 size={15} className="animate-spin" />
       ) : (
-        <Github size={16} />
+        <Github size={15} />
       )}
       <span>Entrar com GitHub</span>
     </button>

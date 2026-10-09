@@ -13,9 +13,9 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-sm text-sm font-medium hover:opacity-90 disabled:opacity-50 transition-all shadow-xs cursor-pointer"
+      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl text-xs font-mono font-medium hover:opacity-90 disabled:opacity-50 transition-all shadow-xs cursor-pointer"
     >
-      <Send size={14} />
+      <Send size={13} />
       <span>{pending ? 'Registrando...' : 'Assinar Livro'}</span>
     </button>
   );
@@ -37,7 +37,7 @@ export function GuestbookForm({ user }: { user: any }) {
         name="message"
         required
         placeholder={`Escreva sua nota como ${user.name}...`}
-        className="w-full p-3 rounded-sm bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all text-sm font-sans placeholder:text-muted-foreground"
+        className="w-full p-3.5 rounded-xl bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all text-sm font-sans placeholder:text-muted-foreground"
         maxLength={500}
       />
       <div className="flex justify-between items-center text-xs text-muted-foreground pt-1">
