@@ -26,12 +26,12 @@ export function TechStack() {
         subtitle="Ingredientes & Matérias-Primas Selecionadas" 
       />
       
-      {/* 2-Column Workstation Layout (Expande pela largura da tela) */}
+      {/* 2-Column Workstation Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         
         {/* Backend & Data Workstation */}
         <motion.div
-          className="bg-card border border-border rounded-sm p-6 card-elevate relative flex flex-col justify-between"
+          className="bg-card border border-border rounded-2xl p-6 md:p-7 card-elevate relative flex flex-col justify-between overflow-hidden"
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
@@ -46,7 +46,7 @@ export function TechStack() {
                 <span className="w-2 h-2 rounded-full bg-terracotta" />
                 Massa & Estrutura // Backend & Dados
               </span>
-              <span className="text-[10px] font-mono text-muted-foreground uppercase bg-parchment px-2 py-0.5 rounded-sm border border-border">
+              <span className="text-[10px] font-mono text-muted-foreground uppercase bg-parchment px-2.5 py-0.5 rounded-md border border-border">
                 8 Componentes
               </span>
             </div>
@@ -63,15 +63,15 @@ export function TechStack() {
             </motion.div>
           </div>
 
-          <div className="mt-6 pt-3 border-t border-dashed border-border/60 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
+          <div className="mt-6 pt-3.5 border-t border-dashed border-border/60 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
             <span>Foco: Confiabilidade & Throughput</span>
-            <span className="text-terracotta">Lote Primário</span>
+            <span className="text-terracotta font-medium">Lote Primário</span>
           </div>
         </motion.div>
 
         {/* Frontend & AI Workstation */}
         <motion.div
-          className="bg-card border border-border rounded-sm p-6 card-elevate relative flex flex-col justify-between"
+          className="bg-card border border-border rounded-2xl p-6 md:p-7 card-elevate relative flex flex-col justify-between overflow-hidden"
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
@@ -86,7 +86,7 @@ export function TechStack() {
                 <span className="w-2 h-2 rounded-full bg-olive" />
                 Recheio & Precisão // Frontend & IA
               </span>
-              <span className="text-[10px] font-mono text-muted-foreground uppercase bg-parchment px-2 py-0.5 rounded-sm border border-border">
+              <span className="text-[10px] font-mono text-muted-foreground uppercase bg-parchment px-2.5 py-0.5 rounded-md border border-border">
                 8 Componentes
               </span>
             </div>
@@ -103,9 +103,9 @@ export function TechStack() {
             </motion.div>
           </div>
 
-          <div className="mt-6 pt-3 border-t border-dashed border-border/60 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
+          <div className="mt-6 pt-3.5 border-t border-dashed border-border/60 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
             <span>Foco: Ergonomia & Modelos Neurais</span>
-            <span className="text-olive">Alta Precisão</span>
+            <span className="text-olive font-medium">Alta Precisão</span>
           </div>
         </motion.div>
 

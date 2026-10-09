@@ -59,9 +59,9 @@ function TimelineItem({ year, title, place, description, index = 0 }: any) {
       whileInView="visible"
       viewport={{ once: true, margin: "-40px" }}
     >
-      {/* Timeline dot — oven ember */}
-      <div className="absolute left-[-7px] top-1.5 w-3 h-3 rounded-full border-2 border-border bg-parchment group-hover:border-terracotta group-hover:bg-terracotta/10 transition-all duration-300">
-        <div className="absolute inset-0 rounded-full bg-ember/20 scale-0 group-hover:scale-150 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
+      {/* Timeline dot — artisan terracotta ring */}
+      <div className="absolute left-[-7px] top-1.5 w-3 h-3 rounded-full border-2 border-border bg-parchment group-hover:border-terracotta group-hover:bg-terracotta/20 transition-all duration-300">
+        <div className="absolute inset-0 rounded-full bg-terracotta/20 scale-0 group-hover:scale-150 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1.5">
@@ -72,7 +72,7 @@ function TimelineItem({ year, title, place, description, index = 0 }: any) {
           {title}
         </h3>
         <span 
-          className="production-tag mt-1 sm:mt-0"
+          className="production-tag mt-1 sm:mt-0 rounded-md"
           style={{ borderStyle: 'solid', borderColor: 'var(--border)' }}
         >
           {year}
