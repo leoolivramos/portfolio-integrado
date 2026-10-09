@@ -1,100 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
+/* ===== DESIGN TOKENS — LIGHT ===== */
 :root {
-  --background: #FAF6F1;
-  --foreground: #2C2417;
-  
-  --card: #FFFCF7;
-  --card-foreground: #2C2417;
-  
-  --popover: #FFFCF7;
-  --popover-foreground: #2C2417;
-  
-  --primary: #B8472A;
-  --primary-foreground: #FFFCF7;
-  
-  --secondary: #F5EDE3;
-  --secondary-foreground: #2C2417;
-  
-  --muted: #F0E8DC;
-  --muted-foreground: #8C7A64;
-  
-  --accent: #5B7B3A;
-  --accent-foreground: #FFFCF7;
-  
-  --destructive: #B8472A;
-  --destructive-foreground: #FAF6F1;
-  
-  --border: #E0D5C5;
-  --input: #E0D5C5;
-  --ring: #B8472A;
-  
-  --radius: 0.5rem;
-  
-  --terracotta: #B8472A;
-  --terracotta-light: #D4705A;
-  --olive: #5B7B3A;
+  /* Core surfaces */
+  --background: #F6F0E6;
+  --foreground: #282522;
+
+  --card: #FFFDF8;
+  --card-foreground: #282522;
+
+  --popover: #FFFDF8;
+  --popover-foreground: #282522;
+
+  /* Primary action */
+  --primary: #B94F35;
+  --primary-foreground: #FFFDF8;
+
+  /* Secondary surfaces */
+  --secondary: #F0E6D6;
+  --secondary-foreground: #282522;
+
+  /* Muted */
+  --muted: #EDE3D3;
+  --muted-foreground: #7A6E62;
+
+  /* Accent */
+  --accent: #65704B;
+  --accent-foreground: #FFFDF8;
+
+  /* Destructive */
+  --destructive: #B94F35;
+  --destructive-foreground: #F6F0E6;
+
+  /* Borders & inputs */
+  --border: #D8CCBC;
+  --input: #D8CCBC;
+  --ring: #B94F35;
+
+  --radius: 0.75rem;
+
+  /* Named palette tokens */
+  --terracotta: #B94F35;
+  --terracotta-dark: #873A2A;
+  --terracotta-light: #D06A4E;
+  --olive: #65704B;
   --olive-light: #8BA86A;
-  --charcoal: #2C2417;
-  --cream: #FAF6F1;
-  --ivory: #FFFCF7;
-  --warm-brown: #8C7A64;
+  --charcoal: #282522;
+  --cream: #F6F0E6;
+  --ivory: #FFFDF8;
+  --warm-brown: #51443A;
+  --coffee: #51443A;
   --burnt-sienna: #A0522D;
-  --parchment: #F5EDE3;
-  --ember: #E8934A;
-  --ember-glow: rgba(232, 147, 74, 0.15);
+  --parchment: #EDE3D3;
+  --dough: #E8D8C2;
+  --ember: #C47235;
+  --ember-glow: rgba(196, 114, 53, 0.12);
+  --warm-gray: #8A8177;
+  --paper-line: #D8CCBC;
   --metallic: #9E8E7E;
-  
+
+  /* Typography */
   --font-editorial: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-technical: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 }
 
+/* ===== DESIGN TOKENS — DARK ===== */
 html.dark {
-  --background: #1A1410;
+  --background: #1C1714;
   --foreground: #EDE5D8;
-  
-  --card: #241E17;
+
+  --card: #262019;
   --card-foreground: #EDE5D8;
-  
-  --popover: #241E17;
+
+  --popover: #262019;
   --popover-foreground: #EDE5D8;
-  
-  --primary: #D4705A;
-  --primary-foreground: #1A1410;
-  
-  --secondary: #2E261E;
+
+  --primary: #D06A4E;
+  --primary-foreground: #1C1714;
+
+  --secondary: #302820;
   --secondary-foreground: #EDE5D8;
-  
-  --muted: #332B22;
+
+  --muted: #352D24;
   --muted-foreground: #A89882;
-  
+
   --accent: #8BA86A;
-  --accent-foreground: #1A1410;
-  
-  --destructive: #D4705A;
-  --destructive-foreground: #1A1410;
-  
-  --border: #3D342A;
-  --input: #3D342A;
-  --ring: #D4705A;
-  
-  --terracotta: #D4705A;
-  --terracotta-light: #E8934A;
+  --accent-foreground: #1C1714;
+
+  --destructive: #D06A4E;
+  --destructive-foreground: #1C1714;
+
+  --border: #3F362C;
+  --input: #3F362C;
+  --ring: #D06A4E;
+
+  --terracotta: #D06A4E;
+  --terracotta-dark: #B94F35;
+  --terracotta-light: #E08A6A;
   --olive: #8BA86A;
   --olive-light: #A8C87A;
   --charcoal: #EDE5D8;
-  --cream: #1A1410;
-  --ivory: #241E17;
+  --cream: #1C1714;
+  --ivory: #262019;
   --warm-brown: #A89882;
+  --coffee: #A89882;
   --burnt-sienna: #C06830;
-  --parchment: #2E261E;
-  --ember: #E8934A;
-  --ember-glow: rgba(232, 147, 74, 0.12);
+  --parchment: #302820;
+  --dough: #3F362C;
+  --ember: #D08A50;
+  --ember-glow: rgba(208, 138, 80, 0.10);
+  --warm-gray: #8A8177;
+  --paper-line: #3F362C;
   --metallic: #7A6E62;
 }
 
+/* ===== TAILWIND v4 THEME BRIDGE ===== */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -115,8 +137,9 @@ html.dark {
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  
+
   --color-terracotta: var(--terracotta);
+  --color-terracotta-dark: var(--terracotta-dark);
   --color-terracotta-light: var(--terracotta-light);
   --color-olive: var(--olive);
   --color-olive-light: var(--olive-light);
@@ -124,39 +147,48 @@ html.dark {
   --color-cream: var(--cream);
   --color-ivory: var(--ivory);
   --color-warm-brown: var(--warm-brown);
+  --color-coffee: var(--coffee);
   --color-burnt-sienna: var(--burnt-sienna);
   --color-parchment: var(--parchment);
+  --color-dough: var(--dough);
   --color-ember: var(--ember);
+  --color-warm-gray: var(--warm-gray);
+  --color-paper-line: var(--paper-line);
   --color-metallic: var(--metallic);
-  
-  --radius-sm: calc(var(--radius) - 2px);
+
+  --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 
   --font-sans: var(--font-body);
   --font-mono: var(--font-technical);
   --font-serif: var(--font-editorial);
 }
 
+/* ===== BASE STYLES ===== */
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
+  font-size: 16px;
   font-weight: 400;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
 }
 
-/* Subtle paper texture overlay */
+/* Subtle paper texture overlay — very light */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.025;
-  background-image: 
+  opacity: 0.02;
+  background-image:
     url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
@@ -164,6 +196,8 @@ body::before {
 html {
   scroll-behavior: smooth;
 }
+
+/* ===== SCROLLBAR ===== */
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -180,11 +214,11 @@ html {
   background: var(--primary);
 }
 
+/* ===== UTILITY CLASSES ===== */
+
 .text-balance {
   text-wrap: balance;
 }
-
-/* ===== TYPOGRAPHY CLASSES ===== */
 
 .font-editorial {
   font-family: var(--font-editorial);
@@ -232,12 +266,12 @@ html {
 
 @keyframes warmGlow {
   0%, 100% {
-    opacity: 0.4;
+    opacity: 0.3;
     transform: scale(1);
   }
   50% {
-    opacity: 0.7;
-    transform: scale(1.05);
+    opacity: 0.5;
+    transform: scale(1.03);
   }
 }
 
@@ -258,17 +292,6 @@ html {
   }
   to {
     transform: scaleX(1);
-  }
-}
-
-@keyframes emberFloat {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateY(-6px) scale(1.1);
-    opacity: 1;
   }
 }
 
@@ -299,16 +322,12 @@ html {
 }
 
 .animate-warm-glow {
-  animation: warmGlow 4s ease-in-out infinite;
+  animation: warmGlow 5s ease-in-out infinite;
 }
 
 .animate-draw-line {
   animation: drawLine 1s ease-out forwards;
   transform-origin: left;
-}
-
-.animate-ember-float {
-  animation: emberFloat 3s ease-in-out infinite;
 }
 
 .animate-reveal-left {
@@ -325,40 +344,7 @@ html {
 .delay-700 { animation-delay: 700ms; }
 .delay-800 { animation-delay: 800ms; }
 
-/* ===== OVEN ARCH DECORATIVE ELEMENT ===== */
-
-.oven-arch {
-  position: relative;
-}
-
-.oven-arch::before {
-  content: '';
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 60px;
-  border-radius: 120px 120px 0 0;
-  border: 2px solid var(--border);
-  border-bottom: none;
-  opacity: 0.4;
-}
-
-.oven-arch-glow::after {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 40px;
-  border-radius: 80px 80px 0 0;
-  background: radial-gradient(ellipse at center bottom, var(--ember-glow) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-/* ===== SECTION DIVIDER WITH OVEN ARCH ===== */
+/* ===== SECTION DIVIDER ===== */
 
 .section-divider {
   position: relative;
@@ -393,8 +379,8 @@ html {
   position: relative;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 2px;
-  box-shadow: 
+  border-radius: 16px;
+  box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.04),
     inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
@@ -408,7 +394,7 @@ html {
   height: 3px;
   background: linear-gradient(90deg, var(--terracotta), var(--ember), var(--terracotta));
   border-radius: 0 0 2px 2px;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 /* ===== PRODUCTION LABEL / TAG ===== */
@@ -423,36 +409,36 @@ html {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted-foreground);
-  border: 1px dashed var(--border);
+  border: 1px solid var(--border);
   padding: 4px 10px;
+  border-radius: 6px;
   background: var(--parchment);
 }
 
 /* ===== WARM CARD HOVER ===== */
 
 .warm-hover {
-  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .warm-hover:hover {
   border-color: var(--terracotta);
-  box-shadow: 
-    0 10px 28px -6px rgba(184, 71, 42, 0.12),
-    0 0 0 1px rgba(184, 71, 42, 0.1);
+  box-shadow:
+    0 8px 24px -6px rgba(185, 79, 53, 0.10),
+    0 0 0 1px rgba(185, 79, 53, 0.08);
   transform: translateY(-2px);
 }
 
-/* 3D Perspective card hover */
+/* Card hover elevation */
 .card-elevate {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
-  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
 }
 
 .card-elevate:hover {
-  transform: translateY(-3px) scale(1.005);
-  box-shadow: 
-    0 16px 36px -8px rgba(44, 36, 23, 0.12),
-    0 0 20px -2px rgba(232, 147, 74, 0.12);
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 28px -8px rgba(40, 37, 34, 0.10),
+    0 0 16px -2px rgba(185, 79, 53, 0.06);
   border-color: var(--terracotta);
 }
 
@@ -463,47 +449,45 @@ html {
 }
 
 .artisan-seal {
-  animation: rotateSeal 40s linear infinite;
+  animation: rotateSeal 45s linear infinite;
   transform-origin: center center;
 }
 
-/* Hearth Breathing Glow */
+/* Hearth glow — subtle ambient */
 @keyframes hearthBreathe {
   0%, 100% {
-    opacity: 0.35;
-    filter: drop-shadow(0 0 15px rgba(232, 147, 74, 0.2));
+    opacity: 0.25;
   }
   50% {
-    opacity: 0.75;
-    filter: drop-shadow(0 0 35px rgba(232, 147, 74, 0.45));
+    opacity: 0.45;
   }
 }
 
 .animate-hearth {
-  animation: hearthBreathe 4s ease-in-out infinite;
+  animation: hearthBreathe 5s ease-in-out infinite;
 }
 
-/* Floating Ember Particle */
+/* Floating particle — subtle drift */
 @keyframes emberDrift {
   0% {
     transform: translateY(0) translateX(0) scale(0.8);
     opacity: 0;
   }
   30% {
-    opacity: 0.8;
+    opacity: 0.5;
   }
   70% {
-    opacity: 0.6;
-    transform: translateY(-40px) translateX(8px) scale(1.1);
+    opacity: 0.35;
+    transform: translateY(-35px) translateX(6px) scale(1);
   }
   100% {
-    transform: translateY(-90px) translateX(-4px) scale(0.6);
+    transform: translateY(-70px) translateX(-3px) scale(0.6);
     opacity: 0;
   }
 }
 
 .ember-particle {
-  animation: emberDrift 5s ease-in-out infinite;
+  animation: emberDrift 6s ease-in-out infinite;
 }
 
 /* ===== DECORATIVE CROSS / PLUS MARKS ===== */
@@ -520,11 +504,44 @@ html {
   font-family: var(--font-technical);
   font-size: 10px;
   color: var(--metallic);
-  opacity: 0.4;
+  opacity: 0.3;
   line-height: 1;
 }
 
-/* ===== INLINE SVG OVEN ICON (reusable mini element) ===== */
+/* ===== OVEN ARCH — kept for OvenDivider, toned down ===== */
+
+.oven-arch {
+  position: relative;
+}
+
+.oven-arch::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 60px;
+  border-radius: 120px 120px 0 0;
+  border: 1.5px solid var(--border);
+  border-bottom: none;
+  opacity: 0.3;
+}
+
+.oven-arch-glow::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 40px;
+  border-radius: 80px 80px 0 0;
+  background: radial-gradient(ellipse at center bottom, var(--ember-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ===== MINI OVEN ICON ===== */
 
 .mini-oven-icon {
   display: inline-block;
@@ -533,5 +550,25 @@ html {
   border: 1.5px solid currentColor;
   border-radius: 16px 16px 0 0;
   border-bottom: none;
-  opacity: 0.5;
+  opacity: 0.4;
+}
+
+/* ===== REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .artisan-seal,
+  .ember-particle,
+  .animate-hearth,
+  .animate-warm-glow {
+    animation: none !important;
+  }
 }
