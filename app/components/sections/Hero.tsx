@@ -44,8 +44,8 @@ export function Hero() {
       initial="hidden"
       animate="visible"
     >
-      {/* Background Rotating Bottega Seal (Marca d'água artesanal sutil) */}
-      <div className="absolute -top-16 -right-10 md:right-8 w-72 h-72 md:w-96 md:h-96 pointer-events-none opacity-[0.04] dark:opacity-[0.06] select-none">
+      {/* Background Rotating Seal (subtle watermark) */}
+      <div className="absolute -top-16 -right-10 md:right-8 w-72 h-72 md:w-96 md:h-96 pointer-events-none opacity-[0.03] dark:opacity-[0.04] select-none">
         <svg viewBox="0 0 300 300" className="w-full h-full artisan-seal text-foreground">
           <defs>
             <path id="circlePath" d="M 150, 150 m -110, 0 a 110,110 0 1,1 220,0 a 110,110 0 1,1 -220,0" />
@@ -59,22 +59,12 @@ export function Hero() {
           </text>
         </svg>
       </div>
-      {/* Floating Hearth Ember Particles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
-        <span className="absolute bottom-16 left-1/4 w-1.5 h-1.5 rounded-full bg-ember ember-particle" style={{ animationDelay: '0.2s', animationDuration: '4.5s' }} />
-        <span className="absolute bottom-28 left-1/3 w-1 h-1 rounded-full bg-terracotta ember-particle" style={{ animationDelay: '1.8s', animationDuration: '5.2s' }} />
-        <span className="absolute bottom-20 right-1/4 w-1.5 h-1.5 rounded-full bg-ember ember-particle" style={{ animationDelay: '2.5s', animationDuration: '4.8s' }} />
-        <span className="absolute bottom-32 right-1/3 w-1 h-1 rounded-full bg-warm-brown ember-particle" style={{ animationDelay: '3.6s', animationDuration: '6s' }} />
-        <span className="absolute bottom-16 right-1/4 w-1.5 h-1.5 rounded-full bg-ember ember-particle" style={{ animationDelay: '4.2s', animationDuration: '5.5s' }} />
-        <span className="absolute bottom-24 right-1/2 w-1 h-1 rounded-full bg-terracotta ember-particle" style={{ animationDelay: '5.0s', animationDuration: '4.0s' }} />
-        <span className="absolute bottom-32 left-1/2 w-1.5 h-1.5 rounded-full bg-ember ember-particle" style={{ animationDelay: '6.0s', animationDuration: '5.0s' }} />
-      </div>
 
-      {/* Warm Ambient Hearth Glow */}
+      {/* Subtle ambient glow */}
       <div 
-        className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[380px] pointer-events-none animate-hearth -z-10"
+        className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none animate-hearth -z-10"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(232, 147, 74, 0.16) 0%, rgba(184, 71, 42, 0.05) 50%, transparent 75%)',
+          background: 'radial-gradient(ellipse at center, rgba(185, 79, 53, 0.08) 0%, rgba(185, 79, 53, 0.02) 50%, transparent 75%)',
         }}
       />
 
@@ -84,9 +74,9 @@ export function Hero() {
         {/* Left Column (8 cols): Name, Titles, and Socials */}
         <motion.div className="lg:col-span-8 space-y-5" variants={fadeUp}>
           
-          {/* Atelier Production Label */}
+          {/* Availability Label */}
           <div className="inline-flex items-center gap-2">
-            <span className="px-3 py-1 bg-parchment border border-border rounded-sm text-[11px] font-mono tracking-wider uppercase text-muted-foreground flex items-center gap-2 shadow-2xs">
+            <span className="px-3.5 py-1.5 bg-parchment border border-border rounded-full text-[11px] font-mono tracking-wider uppercase text-muted-foreground flex items-center gap-2 shadow-xs">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-olive opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-olive"></span>
@@ -97,7 +87,7 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Name — Monumental Editorial Serif */}
+          {/* Name — Editorial Serif */}
           <motion.h1 
             className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.06]"
             style={{ fontFamily: 'var(--font-editorial)' }}
@@ -105,7 +95,7 @@ export function Hero() {
           >
             <span className="relative inline-block">
               Leonardo Ramos
-              {/* Hand-carved organic terracotta stroke */}
+              {/* Terracotta underline stroke */}
               <svg 
                 className="absolute -bottom-2.5 left-0 w-full" 
                 viewBox="0 0 200 8" 
@@ -118,7 +108,7 @@ export function Hero() {
                   stroke="var(--terracotta)" 
                   strokeWidth="3.2" 
                   strokeLinecap="round"
-                  opacity="0.8"
+                  opacity="0.7"
                 />
               </svg>
             </span>
@@ -145,20 +135,20 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Column (4 cols): Photo Frame & Atelier Certification */}
+        {/* Right Column (4 cols): Photo Frame */}
         <motion.div 
           className="lg:col-span-4 flex flex-col items-center lg:items-end"
           variants={fadeUp}
         >
           <div className="relative group card-elevate">
-            {/* Fine-line Corner Marks of an Architectural Draft */}
-            <div className="absolute -top-2.5 -left-2.5 w-5 h-5 border-t-2 border-l-2 border-terracotta/60 z-20 transition-all group-hover:scale-110" />
-            <div className="absolute -top-2.5 -right-2.5 w-5 h-5 border-t-2 border-r-2 border-terracotta/60 z-20 transition-all group-hover:scale-110" />
-            <div className="absolute -bottom-2.5 -left-2.5 w-5 h-5 border-b-2 border-l-2 border-terracotta/60 z-20 transition-all group-hover:scale-110" />
-            <div className="absolute -bottom-2.5 -right-2.5 w-5 h-5 border-b-2 border-r-2 border-terracotta/60 z-20 transition-all group-hover:scale-110" />
+            {/* Subtle corner marks */}
+            <div className="absolute -top-2.5 -left-2.5 w-5 h-5 border-t-2 border-l-2 border-terracotta/40 z-20 transition-all group-hover:scale-110 rounded-tl-sm" />
+            <div className="absolute -top-2.5 -right-2.5 w-5 h-5 border-t-2 border-r-2 border-terracotta/40 z-20 transition-all group-hover:scale-110 rounded-tr-sm" />
+            <div className="absolute -bottom-2.5 -left-2.5 w-5 h-5 border-b-2 border-l-2 border-terracotta/40 z-20 transition-all group-hover:scale-110 rounded-bl-sm" />
+            <div className="absolute -bottom-2.5 -right-2.5 w-5 h-5 border-b-2 border-r-2 border-terracotta/40 z-20 transition-all group-hover:scale-110 rounded-br-sm" />
             
-            {/* Hearth Arch Portrait Frame */}
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-sm overflow-hidden border border-border bg-card shadow-md">
+            {/* Portrait Frame */}
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border border-border bg-card shadow-md">
               <Image
                 src="/perfil.jpg"
                 alt="Leonardo Ramos"
@@ -171,28 +161,28 @@ export function Hero() {
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8VAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A/9k="
               />
-              {/* Warm amber overlay reflection on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-terracotta/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              {/* Subtle warm overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-terracotta/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
 
-            {/* Stamp below picture */}
-            <div className="mt-2.5 flex items-center justify-between text-[10px] font-mono text-muted-foreground px-1">
-              <span className="text-terracotta font-semibold">BOTTEGA DI CODICE</span>
+            {/* Label below picture */}
+            <div className="mt-3 flex items-center justify-center text-[10px] font-mono text-muted-foreground px-1">
+              <span className="text-terracotta/70 font-semibold tracking-wider">BOTTEGA DI CODICE</span>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* A RECEITA — Ficha Técnica de Apresentação em Largura Plena (Wide Two-Panel Dossier) */}
+      {/* Manifesto / Presentation Card */}
       <motion.div 
-        className="w-full bg-card border border-border rounded-sm p-6 sm:p-8 shadow-sm card-elevate overflow-hidden relative"
+        className="w-full bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-sm card-elevate overflow-hidden relative"
         variants={fadeUp}
       >
-        {/* Left marginal terracotta bar */}
-        <div className="absolute top-0 bottom-0 left-0 w-1.5 bg-gradient-to-b from-terracotta via-ember to-terracotta-light" />
+        {/* Left accent bar */}
+        <div className="absolute top-4 bottom-4 left-0 w-1 rounded-r-full bg-gradient-to-b from-terracotta via-ember to-terracotta-light opacity-60" />
 
-        {/* Recipe card header & seal */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-5 border-b border-border/70">
+        {/* Header & tags */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-5 border-b border-border/60 pl-4">
           <div className="flex items-center gap-2.5">
             <div>
               <span className="text-terracotta uppercase tracking-widest font-mono text-[10px] font-bold block">
@@ -204,17 +194,17 @@ export function Hero() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-sm border border-olive/30 text-olive bg-olive/5 font-semibold">
+            <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-lg border border-olive/30 text-olive bg-olive/5 font-semibold">
               Fermentação Lenta
             </span>
-            <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-sm border border-terracotta/30 text-terracotta bg-terracotta/5 font-semibold">
+            <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-lg border border-terracotta/30 text-terracotta bg-terracotta/5 font-semibold">
               Forno a 450°C
             </span>
           </div>
         </div>
 
-        {/* Wide Layout: Manifesto Text on the Left, Technical Pillars on the Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        {/* Content: Manifesto + Spec Box */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center pl-4">
           
           {/* Main Manifesto (Original Content Preserved 100%) */}
           <div className="lg:col-span-8">
@@ -229,8 +219,8 @@ export function Hero() {
             </p>
           </div>
 
-          {/* Right Formulation Spec Box (Preenche o espaço com rigor artesanal) */}
-          <div className="lg:col-span-4 p-4 rounded-sm border border-border/80 bg-parchment/50 space-y-2.5 font-mono text-xs text-muted-foreground">
+          {/* Spec Box */}
+          <div className="lg:col-span-4 p-4 rounded-xl border border-border/70 bg-parchment/50 space-y-2.5 font-mono text-xs text-muted-foreground">
             <div className="flex items-center justify-between pb-1.5 border-b border-border/40 text-[11px]">
               <span className="text-foreground font-semibold">MATÉRIA-PRIMA:</span>
               <span className="text-terracotta font-medium">Clean Architecture</span>
@@ -246,8 +236,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Technical Footer Badges */}
-        <div className="mt-6 pt-4 border-t border-dashed border-border/80 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-muted-foreground">
+        {/* Footer Badges */}
+        <div className="mt-6 pt-4 border-t border-dashed border-border/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-muted-foreground pl-4">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
@@ -258,7 +248,7 @@ export function Hero() {
               <span>Aprendizado Contínuo</span>
             </span>
           </div>
-          <span className="text-terracotta font-semibold text-[11px] tracking-wider">
+          <span className="text-terracotta/80 font-semibold text-[11px] tracking-wider">
             ATELIER // CUIABÁ - MT
           </span>
         </div>
@@ -280,9 +270,9 @@ function SocialButton({ href, icon: Icon, label, download }: SocialButtonProps) 
       href={href} 
       target="_blank" 
       download={download}
-      className="group inline-flex items-center gap-2 px-3.5 py-2 bg-card border border-border text-foreground text-xs font-medium rounded-sm 
-        hover:border-terracotta hover:bg-parchment/60 hover:text-terracotta shadow-2xs
-        transition-all duration-300 font-mono tracking-tight cursor-pointer"
+      className="group inline-flex items-center gap-2 px-3.5 py-2 bg-card border border-border text-foreground text-xs font-medium rounded-xl 
+        hover:border-terracotta/50 hover:bg-parchment/60 hover:text-terracotta shadow-xs
+        transition-all duration-250 font-mono tracking-tight cursor-pointer"
     >
       <Icon size={14} /> 
       <span>{label}</span>
