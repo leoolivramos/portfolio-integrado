@@ -27,26 +27,18 @@ export function Navbar() {
 
   return (
     <motion.nav 
-      className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90vw] max-w-3xl"
+      className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-[92vw] max-w-3xl"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
     >
       <div 
-        className="flex items-center gap-1 px-3 py-2.5 bg-card/90 backdrop-blur-lg border border-border rounded-sm shadow-lg"
-        style={{ boxShadow: '0 4px 24px rgba(44, 36, 23, 0.08)' }}
+        className="flex items-center gap-1 px-3 py-2.5 bg-card/92 backdrop-blur-xl border border-border rounded-2xl"
+        style={{ boxShadow: '0 4px 20px rgba(40, 37, 34, 0.06), 0 1px 3px rgba(40, 37, 34, 0.04)' }}
       >
         {/* Logo mark */}
-        <div className="hidden md:flex items-center mr-2 pl-2 pr-3 border-r border-border">
-          <svg width="20" height="14" viewBox="0 0 48 32" fill="none" className="text-terracotta opacity-60">
-            <path 
-              d="M4 32 C4 14, 14 4, 24 4 C34 4, 44 14, 44 32" 
-              stroke="currentColor" 
-              strokeWidth="2.5" 
-              fill="none"
-            />
-            <circle cx="24" cy="22" r="2.5" fill="currentColor" opacity="0.5" />
-          </svg>
+        <div className="hidden md:flex items-center mr-2 pl-2 pr-3 border-r border-border/60">
+          <span className="font-serif font-bold text-sm text-terracotta tracking-tight">LR</span>
         </div>
 
         <ul className="hidden md:flex items-center gap-0 flex-1">
@@ -54,7 +46,7 @@ export function Navbar() {
             <li key={item.name} className="flex-1">
               <Link 
                 href={item.href}
-                className="flex items-center justify-center gap-2 px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-parchment rounded-sm transition-all duration-200"
+                className="flex items-center justify-center gap-2 px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-parchment/60 rounded-xl transition-all duration-200"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 <item.icon size={15} />
@@ -72,10 +64,10 @@ export function Navbar() {
           {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
-        <div className="md:pl-2 md:ml-2 md:border-l md:border-border flex items-center ml-auto md:ml-0">
+        <div className="md:pl-2 md:ml-2 md:border-l md:border-border/60 flex items-center ml-auto md:ml-0">
           <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-parchment rounded-sm transition-all duration-200"
+            className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-parchment/60 rounded-xl transition-all duration-200"
             title="Alternar tema"
           >
             {!mounted ? (
@@ -96,7 +88,7 @@ export function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
-            className="md:hidden absolute top-full left-0 right-0 mt-2 bg-card/95 backdrop-blur-lg border border-border rounded-sm shadow-lg overflow-hidden"
+            className="md:hidden absolute top-full left-0 right-0 mt-2 bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-lg overflow-hidden"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -104,11 +96,11 @@ export function Navbar() {
           >
             <ul className="flex flex-col">
               {navItems.map((item) => (
-                <li key={item.name} className="border-b border-border last:border-b-0">
+                <li key={item.name} className="border-b border-border/50 last:border-b-0">
                   <Link
                     href={item.href}
                     onClick={closeMobileMenu}
-                    className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-parchment transition-colors"
+                    className="flex items-center gap-3 px-4 py-3.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-parchment/60 transition-colors"
                   >
                     <item.icon size={18} />
                     <span>{item.name}</span>
