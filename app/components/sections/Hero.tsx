@@ -20,26 +20,28 @@ const fadeUp: Variants = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: 'easeOut' } 
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
   },
 };
 
-const stampVariant: Variants = {
-  hidden: { opacity: 0, scale: 1.15, rotate: -1.5, filter: 'blur(3px)' },
-  visible: {
+const titleLetterVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
     opacity: 1,
-    scale: 1,
-    rotate: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.75, ease: 'easeOut' },
-  },
+    y: 0,
+    transition: {
+      duration: 0.6,
+      delay: 0.2 + i * 0.08,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
 };
 
 export function Hero() {
   return (
     <motion.header 
       id="hero" 
-      className="mb-14 pt-4 md:pt-8 scroll-mt-24 relative overflow-visible"
+      className="pt-6 md:pt-14 pb-6 scroll-mt-24 relative overflow-visible"
       variants={stagger}
       initial="hidden"
       animate="visible"
@@ -60,23 +62,18 @@ export function Hero() {
         </svg>
       </div>
 
-      {/* Subtle ambient glow */}
-      <div 
-        className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none animate-hearth -z-10"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(185, 79, 53, 0.08) 0%, rgba(185, 79, 53, 0.02) 50%, transparent 75%)',
-        }}
-      />
-
-      {/* Top Banner Row: Left Info + Right Portrait Frame */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-10 relative">
+      {/* Asymmetric headline row: oversized name left, portrait right */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end relative">
         
-        {/* Left Column (8 cols): Name, Titles, and Socials */}
-        <motion.div className="lg:col-span-8 space-y-5" variants={fadeUp}>
+        <motion.div className="lg:col-span-8 space-y-8 md:space-y-10" variants={fadeUp}>
           
           {/* Availability Label */}
-          <div className="inline-flex items-center gap-2">
-            <span className="px-3.5 py-1.5 bg-parchment border border-border rounded-full text-[11px] font-mono tracking-wider uppercase text-muted-foreground flex items-center gap-2 shadow-xs">
+          <motion.div 
+            className="inline-flex items-center gap-2"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+          >
+            <span className="px-3.5 py-1.5 border border-border rounded-full text-[11px] font-mono tracking-wider uppercase text-muted-foreground flex items-center gap-2 shadow-2xs hover:border-olive/50 transition-colors">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-olive opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-olive"></span>
@@ -85,172 +82,151 @@ export function Hero() {
               <span className="text-border">|</span>
               <span className="text-terracotta font-medium">Lote 2026</span>
             </span>
-          </div>
+          </motion.div>
 
-          {/* Name — Editorial Serif */}
-          <motion.h1 
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.06]"
-            style={{ fontFamily: 'var(--font-editorial)' }}
-            variants={stampVariant}
-          >
-            <span className="relative inline-block">
-              Leonardo Ramos
-              {/* Terracotta underline stroke */}
-              <svg 
-                className="absolute -bottom-2.5 left-0 w-full" 
-                viewBox="0 0 200 8" 
-                fill="none" 
-                preserveAspectRatio="none"
-                style={{ height: '7px' }}
-              >
-                <path 
-                  d="M0 5 Q50 0, 100 4 Q150 8, 200 3" 
-                  stroke="var(--terracotta)" 
-                  strokeWidth="3.2" 
-                  strokeLinecap="round"
-                  opacity="0.7"
-                />
-              </svg>
-            </span>
-          </motion.h1>
-
-          {/* Subtitles & Engineering Spec */}
-          <div className="space-y-1.5 pt-1">
-            <p 
-              className="text-base sm:text-lg text-foreground/90 font-medium tracking-wide flex items-center gap-2"
-              style={{ fontFamily: 'var(--font-technical)' }}
+          {/* Name — oversized editorial serif with staggered word reveal */}
+          <h1 className="display-title text-foreground overflow-hidden">
+            <motion.span 
+              className="block"
+              custom={0}
+              variants={titleLetterVariants}
+              initial="hidden"
+              animate="visible"
             >
-              <span>Full Stack Developer & Engenheiro de Software</span>
-            </p>
-          </div>
+              Leonardo
+            </motion.span>{' '}
+            <motion.span 
+              className="block text-terracotta"
+              custom={1}
+              variants={titleLetterVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              Ramos
+            </motion.span>
+          </h1>
+
+          {/* Subtitle */}
+          <motion.p 
+            className="text-base sm:text-lg text-foreground/80 font-medium tracking-wide"
+            style={{ fontFamily: 'var(--font-technical)' }}
+            variants={fadeUp}
+          >
+            <span>Full Stack Developer & Engenheiro de Software</span>
+          </motion.p>
 
           {/* Social and Action Links */}
-          <div className="flex flex-wrap gap-2.5 pt-2">
+          <motion.div className="flex flex-wrap items-center gap-x-2 gap-y-2.5 pt-2" variants={fadeUp}>
             <SocialButton href="https://github.com/leoolivramos" icon={Github} label="GitHub" />
             <SocialButton href="https://linkedin.com/in/leonardo-de-oliveira-ramos-690318270" icon={Linkedin} label="LinkedIn" />
             <SocialButton href="https://medium.com/@leoolivramos" icon={BookOpen} label="Medium" />
             <SocialButton href="mailto:leoolivramos@gmail.com" icon={Mail} label="Email" />
             <SocialButton href="https://wa.me/5565992121341" icon={Phone} label="WhatsApp" />
             <SocialButton href="/Leonardo_Ramos_CV.pdf" icon={Download} label="Currículo (PDF)" download />
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right Column (4 cols): Photo Frame */}
+        {/* Portrait with spring hover & smooth glow */}
         <motion.div 
-          className="lg:col-span-4 flex flex-col items-center lg:items-end"
+          className="lg:col-span-4 flex flex-col items-start lg:items-end"
           variants={fadeUp}
         >
-          <div className="relative group card-elevate">
-            {/* Subtle corner marks */}
-            <div className="absolute -top-2.5 -left-2.5 w-5 h-5 border-t-2 border-l-2 border-terracotta/40 z-20 transition-all group-hover:scale-110 rounded-tl-sm" />
-            <div className="absolute -top-2.5 -right-2.5 w-5 h-5 border-t-2 border-r-2 border-terracotta/40 z-20 transition-all group-hover:scale-110 rounded-tr-sm" />
-            <div className="absolute -bottom-2.5 -left-2.5 w-5 h-5 border-b-2 border-l-2 border-terracotta/40 z-20 transition-all group-hover:scale-110 rounded-bl-sm" />
-            <div className="absolute -bottom-2.5 -right-2.5 w-5 h-5 border-b-2 border-r-2 border-terracotta/40 z-20 transition-all group-hover:scale-110 rounded-br-sm" />
-            
-            {/* Portrait Frame */}
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border border-border bg-card shadow-md">
+          <motion.div 
+            className="relative group"
+            whileHover={{ y: -4 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            <div className="relative w-52 h-64 sm:w-60 sm:h-72 lg:w-64 lg:h-80 rounded-[22px] overflow-hidden bg-parchment shadow-md border border-border/80 group-hover:border-terracotta/40 group-hover:shadow-xl transition-all duration-500">
               <Image
                 src="/perfil.jpg"
                 alt="Leonardo Ramos"
                 fill
                 fetchPriority="high"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 768px) 192px, 224px"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 768px) 208px, 256px"
                 priority
                 quality={90}
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAIAAgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8VAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A/9k="
               />
-              {/* Subtle warm overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-terracotta/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
 
             {/* Label below picture */}
-            <div className="mt-3 flex items-center justify-center text-[10px] font-mono text-muted-foreground px-1">
-              <span className="text-terracotta/70 font-semibold tracking-wider">BOTTEGA DI CODICE</span>
+            <div className="mt-4 flex items-center text-[10px] font-mono text-muted-foreground group-hover:text-terracotta transition-colors duration-300">
+              <span className="font-semibold tracking-[0.18em]">BOTTEGA DI CODICE</span>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* Manifesto / Presentation Card */}
+      {/* Manifesto — borderless two-column block under a hairline rule */}
       <motion.div 
-        className="w-full bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-sm card-elevate overflow-hidden relative"
+        className="rule-top mt-16 md:mt-24 pt-10 md:pt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 relative"
         variants={fadeUp}
       >
-        {/* Left accent bar */}
-        <div className="absolute top-4 bottom-4 left-0 w-1 rounded-r-full bg-gradient-to-b from-terracotta via-ember to-terracotta-light opacity-60" />
-
-        {/* Header & tags */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-5 border-b border-border/60 pl-4">
-          <div className="flex items-center gap-2.5">
-            <div>
-              <span className="text-terracotta uppercase tracking-widest font-mono text-[10px] font-bold block">
-                Ficha de Bancada Nº 01
-              </span>
-              <h2 className="font-serif font-bold text-lg text-foreground">
-                A Receita: Filosofia de Engenharia
-              </h2>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-lg border border-olive/30 text-olive bg-olive/5 font-semibold">
+        {/* Left: label, heading, tags */}
+        <div className="lg:col-span-4 space-y-5">
+          <span className="eyebrow block">
+            Ficha de Bancada Nº 01
+          </span>
+          <h2 className="block-heading text-foreground text-balance">
+            A Receita: Filosofia de Engenharia
+          </h2>
+          <div className="flex flex-wrap items-center gap-2 pt-1">
+            <span className="text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full border border-olive/40 text-olive font-semibold hover:border-olive transition-colors">
               Fermentação Lenta
             </span>
-            <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-lg border border-terracotta/30 text-terracotta bg-terracotta/5 font-semibold">
+            <span className="text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full border border-terracotta/40 text-terracotta font-semibold hover:border-terracotta transition-colors">
               Forno a 450°C
             </span>
           </div>
         </div>
 
-        {/* Content: Manifesto + Spec Box */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center pl-4">
-          
-          {/* Main Manifesto (Original Content Preserved 100%) */}
-          <div className="lg:col-span-8">
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-balance font-normal">
-              Desenvolvedor com vivência prática em{' '}
-              <strong className="font-semibold text-foreground">desenvolvimento de sistemas</strong> e{' '}
-              <strong className="font-semibold text-foreground">engenharia de software</strong>.
-              Focado em resolver problemas complexos, criar arquiteturas escaláveis e explorar
-              o potencial entre <strong className="font-semibold text-foreground">DevOps</strong>,{' '}
-              <strong className="font-semibold text-foreground">sistemas distribuídos</strong> e{' '}
-              <strong className="font-semibold text-foreground">IA aplicada</strong>.
-            </p>
-          </div>
+        {/* Right: manifesto, spec rows, footer badges */}
+        <div className="lg:col-span-8 space-y-10">
+          <p className="lead-text text-foreground/80 text-balance">
+            Desenvolvedor com vivência prática em{' '}
+            <strong className="font-medium text-foreground">desenvolvimento de sistemas</strong> e{' '}
+            <strong className="font-medium text-foreground">engenharia de software</strong>.
+            Focado em resolver problemas complexos, criar arquiteturas escaláveis e explorar
+            o potencial entre <strong className="font-medium text-foreground">DevOps</strong>,{' '}
+            <strong className="font-medium text-foreground">sistemas distribuídos</strong> e{' '}
+            <strong className="font-medium text-foreground">IA aplicada</strong>.
+          </p>
 
-          {/* Spec Box */}
-          <div className="lg:col-span-4 p-4 rounded-xl border border-border/70 bg-parchment/50 space-y-2.5 font-mono text-xs text-muted-foreground">
-            <div className="flex items-center justify-between pb-1.5 border-b border-border/40 text-[11px]">
+          {/* Spec rows with interactive hover transitions */}
+          <div className="font-mono text-xs text-muted-foreground">
+            <div className="flex items-center justify-between py-3 border-t border-border text-[11px] hover:text-foreground hover:pl-1 transition-all duration-200">
               <span className="text-foreground font-semibold">MATÉRIA-PRIMA:</span>
               <span className="text-terracotta font-medium">Clean Architecture</span>
             </div>
-            <div className="flex items-center justify-between pb-1.5 border-b border-border/40 text-[11px]">
+            <div className="flex items-center justify-between py-3 border-t border-border text-[11px] hover:text-foreground hover:pl-1 transition-all duration-200">
               <span className="text-foreground font-semibold">TEMPO MATURAÇÃO:</span>
               <span className="text-olive font-medium">Resiliência Longa</span>
             </div>
-            <div className="flex items-center justify-between text-[11px]">
+            <div className="flex items-center justify-between py-3 border-y border-border text-[11px] hover:text-foreground hover:pl-1 transition-all duration-200">
               <span className="text-foreground font-semibold">AMBIENTE:</span>
               <span className="text-ember font-medium">Produção Contínua</span>
             </div>
           </div>
-        </div>
 
-        {/* Footer Badges */}
-        <div className="mt-6 pt-4 border-t border-dashed border-border/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-muted-foreground pl-4">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
-              <span>Sistemas & Dados</span>
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-olive" />
-              <span>Aprendizado Contínuo</span>
+          {/* Footer badges */}
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-muted-foreground">
+            <div className="flex items-center gap-4">
+              <span className="flex items-center gap-1.5 hover:text-foreground transition-colors">
+                <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
+                <span>Sistemas & Dados</span>
+              </span>
+              <span className="flex items-center gap-1.5 hover:text-foreground transition-colors">
+                <span className="w-1.5 h-1.5 rounded-full bg-olive" />
+                <span>Aprendizado Contínuo</span>
+              </span>
+            </div>
+            <span className="text-terracotta font-semibold text-[11px] tracking-wider">
+              CUIABÁ - MT
             </span>
           </div>
-          <span className="text-terracotta/80 font-semibold text-[11px] tracking-wider">
-            ATELIER // CUIABÁ - MT
-          </span>
         </div>
       </motion.div>
     </motion.header>
@@ -259,23 +235,33 @@ export function Hero() {
 
 interface SocialButtonProps {
   href: string;
-  icon: React.ComponentType<{ size: number }>;
+  icon: React.ComponentType<{ size: number; className?: string }>;
   label: string;
   download?: boolean;
 }
 
 function SocialButton({ href, icon: Icon, label, download }: SocialButtonProps) {
+  const isPrimary = !!download;
+
   return (
-    <Link 
-      href={href} 
-      target="_blank" 
-      download={download}
-      className="group inline-flex items-center gap-2 px-3.5 py-2 bg-card border border-border text-foreground text-xs font-medium rounded-xl 
-        hover:border-terracotta/50 hover:bg-parchment/60 hover:text-terracotta shadow-xs
-        transition-all duration-250 font-mono tracking-tight cursor-pointer"
+    <motion.div
+      whileHover={{ y: -2, scale: 1.02 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 450, damping: 25 }}
     >
-      <Icon size={14} /> 
-      <span>{label}</span>
-    </Link>
+      <Link 
+        href={href} 
+        target="_blank" 
+        download={download}
+        className={`group inline-flex items-center gap-2 px-4 py-2.5 text-xs font-medium rounded-xl font-mono tracking-tight cursor-pointer transition-all duration-200 ${
+          isPrimary
+            ? 'bg-primary text-primary-foreground hover:bg-terracotta-dark shadow-sm hover:shadow-md'
+            : 'text-foreground/80 hover:text-terracotta hover:bg-parchment/50 border border-transparent hover:border-border/60'
+        }`}
+      >
+        <Icon size={14} className="group-hover:rotate-12 group-hover:scale-115 transition-transform duration-200 shrink-0 text-terracotta" /> 
+        <span className={isPrimary ? '' : 'underline-offset-4 group-hover:underline'}>{label}</span>
+      </Link>
+    </motion.div>
   );
 }
