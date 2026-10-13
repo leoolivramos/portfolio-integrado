@@ -19,34 +19,31 @@ const itemVariant: Variants = {
 
 export function TechStack() {
   return (
-    <section id="skills" className="scroll-mt-24">
+    <section id="skills" className="section-split scroll-mt-24">
       <SectionTitle 
         title="Arsenal Técnico" 
         icon={Cpu} 
         subtitle="Ingredientes & Matérias-Primas Selecionadas" 
       />
       
-      {/* 2-Column Workstation Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+      {/* Two groups stacked in the content column, separated by hairline rules */}
+      <div className="grid grid-cols-1 gap-14 items-stretch">
         
-        {/* Backend & Data Workstation */}
+        {/* Backend & Data */}
         <motion.div
-          className="bg-card border border-border rounded-2xl p-6 md:p-7 card-elevate relative flex flex-col justify-between overflow-hidden"
+          className="rule-top pt-7 relative flex flex-col justify-between"
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
         >
-          {/* Top subtle brand accent line */}
-          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-terracotta/40 via-ember/30 to-transparent" />
-
           <div>
-            <div className="flex items-center justify-between pb-3 mb-5 border-b border-border/70">
-              <span className="font-mono text-xs font-bold text-warm-brown uppercase tracking-widest flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-7">
+              <span className="font-mono text-xs font-semibold text-warm-brown uppercase tracking-widest flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-terracotta" />
                 Massa & Estrutura // Backend & Dados
               </span>
-              <span className="text-[10px] font-mono text-muted-foreground uppercase bg-parchment px-2.5 py-0.5 rounded-md border border-border">
+              <span className="text-[10px] font-mono text-muted-foreground uppercase px-3 py-0.5 rounded-full border border-border">
                 8 Componentes
               </span>
             </div>
@@ -63,30 +60,27 @@ export function TechStack() {
             </motion.div>
           </div>
 
-          <div className="mt-6 pt-3.5 border-t border-dashed border-border/60 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
+          <div className="mt-7 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
             <span>Foco: Confiabilidade & Throughput</span>
             <span className="text-terracotta font-medium">Lote Primário</span>
           </div>
         </motion.div>
 
-        {/* Frontend & AI Workstation */}
+        {/* Frontend & AI */}
         <motion.div
-          className="bg-card border border-border rounded-2xl p-6 md:p-7 card-elevate relative flex flex-col justify-between overflow-hidden"
+          className="rule-top pt-7 relative flex flex-col justify-between"
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
         >
-          {/* Top subtle brand accent line */}
-          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-olive/40 via-ember/30 to-transparent" />
-
           <div>
-            <div className="flex items-center justify-between pb-3 mb-5 border-b border-border/70">
-              <span className="font-mono text-xs font-bold text-warm-brown uppercase tracking-widest flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-7">
+              <span className="font-mono text-xs font-semibold text-warm-brown uppercase tracking-widest flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-olive" />
                 Recheio & Precisão // Frontend & IA
               </span>
-              <span className="text-[10px] font-mono text-muted-foreground uppercase bg-parchment px-2.5 py-0.5 rounded-md border border-border">
+              <span className="text-[10px] font-mono text-muted-foreground uppercase px-3 py-0.5 rounded-full border border-border">
                 8 Componentes
               </span>
             </div>
@@ -103,7 +97,7 @@ export function TechStack() {
             </motion.div>
           </div>
 
-          <div className="mt-6 pt-3.5 border-t border-dashed border-border/60 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
+          <div className="mt-7 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
             <span>Foco: Ergonomia & Modelos Neurais</span>
             <span className="text-olive font-medium">Alta Precisão</span>
           </div>
