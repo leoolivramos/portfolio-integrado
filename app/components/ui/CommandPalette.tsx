@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Mail, FileText, Sun, Moon, Home, Code, BookOpen, MessageCircle, Check, Terminal } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -31,7 +32,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     return () => document.removeEventListener('keydown', down);
   }, [isOpen, onClose]);
 
-  if (!mounted || !isOpen) return null;
+  if (!mounted) return null;
 
   const handleNavigate = (id: string) => {
     const element = document.getElementById(id);
@@ -152,21 +153,33 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   );
 
   return (
-    <>
-      {/* Backdrop */}
-      <div 
-        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
-        onClick={() => {
-          onClose();
-          setSearch('');
-        }}
-      />
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div 
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => {
+              onClose();
+              setSearch('');
+            }}
+          />
 
-      {/* Command Palette */}
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-xl p-4">
-        <div className="rounded-2xl border border-border bg-card shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150">
-          <div className="flex items-center border-b border-border px-4 py-1.5 bg-parchment">
-            <Terminal size={16} className="mr-3 text-terracotta shrink-0" />
+          {/* Command Palette */}
+          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-xl p-4 pointer-events-none">
+            <motion.div 
+              className="rounded-2xl border border-border bg-card shadow-2xl overflow-hidden pointer-events-auto"
+              initial={{ opacity: 0, scale: 0.95, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -10 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="flex items-center border-b border-border px-4 py-1.5 bg-parchment">
+                <Terminal size={16} className="mr-3 text-terracotta shrink-0" />
             <input
               type="text"
               placeholder="Digite um comando, seção ou atalho..."
@@ -212,12 +225,14 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
           </div>
 
           {/* Footer hint */}
-          <div className="border-t border-border bg-parchment px-4 py-2.5 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
-            <span>Laboratório de Navegação Rápida</span>
-            <span>ESC para fechar</span>
+              <div className="border-t border-border bg-parchment px-4 py-2.5 text-[11px] font-mono text-muted-foreground flex justify-between items-center">
+                <span>Laboratório de Navegação Rápida</span>
+                <span>ESC para fechar</span>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </div>
-    </>
+        </>
+      )}
+    </AnimatePresence>
   );
 }
