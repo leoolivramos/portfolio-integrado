@@ -14,32 +14,22 @@ export function SectionTitle({ title, icon: Icon, id, subtitle }: SectionTitlePr
   return (
     <motion.div 
       id={id} 
-      className="scroll-mt-24"
+      className="section-title scroll-mt-24"
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <div className="relative mt-12 mb-8">
-
-        <h2 
-          className="text-3xl md:text-4xl font-bold text-foreground tracking-tight"
-          style={{ fontFamily: 'var(--font-editorial)' }}
-        >
-          {title}
-        </h2>
-
+      <div className="relative pt-2 mb-10 lg:mb-0">
         {subtitle && (
-          <p 
-            className="mt-1.5 text-muted-foreground"
-            style={{ fontFamily: 'var(--font-technical)', fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}
-          >
+          <p className="eyebrow mb-4">
             {subtitle}
           </p>
         )}
 
-        {/* Bottom accent line */}
-        <div className="mt-4 h-0.5 w-16 bg-terracotta/35 rounded-full" />
+        <h2 className="section-heading text-foreground text-balance">
+          {title}
+        </h2>
       </div>
     </motion.div>
   );

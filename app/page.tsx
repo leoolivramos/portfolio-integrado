@@ -42,14 +42,10 @@ export default async function Home() {
           {/* Forno de Transição */}
           <OvenDivider label="JORNADA & MATURAÇÃO" />
 
-          {/* 4. Jornada & Maturação Profissional (Composição Balanceada em 2 Colunas) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            <div className="lg:col-span-7">
-              <Experience />
-            </div>
-            <div className="lg:col-span-5">
-              <Education />
-            </div>
+          {/* 4. Jornada & Maturação Profissional (cada seção usa o layout assimétrico próprio) */}
+          <Experience />
+          <div className="mt-24 md:mt-32">
+            <Education />
           </div>
 
           {/* Forno de Transição */}
