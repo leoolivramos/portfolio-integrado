@@ -5,6 +5,7 @@ import { useChat } from 'ai/react';
 import { MessageSquare, X, Send, Bot, User, Sparkles, Loader2, ArrowRight } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,8 +44,15 @@ export function ChatWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
 
-      {isOpen && (
-        <div className="mb-4 w-[90vw] sm:w-[390px] h-[72vh] sm:h-[520px] max-h-[calc(100dvh-120px)] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: 16, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 16, scale: 0.95 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-4 w-[90vw] sm:w-[390px] h-[72vh] sm:h-[520px] max-h-[calc(100dvh-120px)] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+          >
 
           {/* Header */}
           <div className="p-4 flex justify-between items-center bg-parchment border-b border-border">
@@ -146,14 +154,16 @@ export function ChatWidget() {
           {messages.length === 1 && !isLoading && (
             <div className="px-3 pb-2.5 pt-1.5 flex gap-2 overflow-x-auto bg-background/50 border-t border-border/40">
               {suggestions.map((suggestion, index) => (
-                <button
+                <motion.button
                   key={index}
                   onClick={() => handleSuggestionClick(suggestion)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.96 }}
                   className="whitespace-nowrap flex items-center gap-1.5 text-[11px] font-mono bg-parchment border border-border hover:border-terracotta hover:text-terracotta transition-colors rounded-lg px-2.5 py-1 text-muted-foreground cursor-pointer"
                 >
                   {suggestion}
                   <ArrowRight size={10} className="opacity-50" />
-                </button>
+                </motion.button>
               ))}
             </div>
           )}
@@ -166,25 +176,40 @@ export function ChatWidget() {
               onChange={handleInputChange}
               placeholder="Pergunte sobre código, stack ou arquitetura..."
             />
-            <button
+            <motion.button
               type="submit"
               disabled={isLoading || !input.trim()}
+              whileTap={{ scale: 0.9 }}
               className="bg-primary text-primary-foreground p-2 rounded-xl hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-xs flex items-center justify-center w-8.5 h-8.5 cursor-pointer"
             >
               {isLoading ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
 
       {/* Floating Toggle Button */}
-      <button
+      <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className="group relative h-13 w-13 rounded-2xl bg-primary text-primary-foreground shadow-xl hover:opacity-95 transition-all flex items-center justify-center border border-border cursor-pointer"
         aria-label="Abrir assistente IA"
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
+        transition={{ type: "spring", stiffness: 450, damping: 25 }}
       >
         <div className="absolute inset-0 rounded-2xl bg-terracotta/20 animate-ping opacity-0 group-hover:opacity-100 duration-1000 pointer-events-none" />
-        {isOpen ? <X size={20} /> : <MessageSquare size={20} />}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={isOpen ? 'open' : 'closed'}
+            initial={{ rotate: -90, scale: 0.5, opacity: 0 }}
+            animate={{ rotate: 0, scale: 1, opacity: 1 }}
+            exit={{ rotate: 90, scale: 0.5, opacity: 0 }}
+            transition={{ duration: 0.15 }}
+          >
+            {isOpen ? <X size={20} /> : <MessageSquare size={20} />}
+          </motion.div>
+        </AnimatePresence>
 
         {!isOpen && (
           <span className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -192,7 +217,7 @@ export function ChatWidget() {
             <span className="relative inline-flex rounded-full h-3 w-3 bg-olive"></span>
           </span>
         )}
-      </button>
+      </motion.button>
     </div>
   );
 }

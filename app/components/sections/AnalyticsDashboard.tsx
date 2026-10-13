@@ -10,7 +10,7 @@ import { SectionTitle } from '../ui/SectionTitle';
 import { BarChart3, Info, X, Activity, Code2, Radar as RadarIcon } from 'lucide-react';
 import { Stats } from '../../types';
 import { useTheme } from 'next-themes';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 /* Artisanal palette for charts */
 const COLORS = ['#B94F35', '#65704B', '#D97736', '#873A2A', '#8A8177']; 
@@ -32,8 +32,22 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 function MetricsModal({ onClose }: { onClose: () => void }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-card border border-border w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <motion.div 
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        onClick={onClose}
+      />
+      <motion.div 
+        className="relative bg-card border border-border w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        initial={{ opacity: 0, scale: 0.95, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 16 }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      >
         
         <div className="flex justify-between items-center p-5 border-b border-border bg-parchment">
           <h3 className="font-semibold flex items-center gap-2 text-foreground" style={{ fontFamily: 'var(--font-editorial)' }}>
@@ -104,10 +118,7 @@ function MetricsModal({ onClose }: { onClose: () => void }) {
             Entendi
           </button>
         </div>
-
-      </div>
-      
-      <div className="absolute inset-0 -z-10" onClick={onClose} />
+      </motion.div>
     </div>
   );
 }
@@ -136,28 +147,30 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
   }
 
   return (
-    <section id='analyticsdashboard' className="mb-16 relative">
+    <section id='analyticsdashboard' className="section-split mb-8 relative">
       
-      <div>
-        <SectionTitle title="Telemetria & Rigor" icon={BarChart3} subtitle="Auditoria de Produção em Tempo Real" />
-        <div className="flex justify-between items-center -mt-2 mb-4">
-          <p className="text-sm text-muted-foreground">
-            Métricas de cadência, distribuição de código e perfil de engenharia auditadas continuamente.
-          </p>
-          <button
-            onClick={() => setShowInfo(true)}
-            className="flex items-center gap-1.5 text-xs font-mono font-medium text-muted-foreground hover:text-terracotta transition-colors bg-parchment px-3 py-1.5 rounded-lg border border-border hover:border-terracotta/30 cursor-pointer shadow-xs shrink-0"
-          >
-            <Info size={13} className="text-terracotta" />
-            <span>Metodologia</span>
-          </button>
-        </div>
+      <SectionTitle title="Telemetria & Rigor" icon={BarChart3} subtitle="Auditoria de Produção em Tempo Real" />
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 mb-10">
+        <p className="lead-text text-foreground/75 max-w-xl text-balance">
+          Métricas de cadência, distribuição de código e perfil de engenharia auditadas continuamente.
+        </p>
+        <motion.button
+          onClick={() => setShowInfo(true)}
+          className="flex items-center gap-1.5 text-xs font-mono font-medium text-muted-foreground hover:text-terracotta transition-colors px-3 py-2 rounded-xl border border-border hover:border-terracotta/40 cursor-pointer shrink-0"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          <Info size={13} className="text-terracotta" />
+          <span>Metodologia</span>
+        </motion.button>
       </div>
 
-      {showInfo && <MetricsModal onClose={() => setShowInfo(false)} />}
+      <AnimatePresence>
+        {showInfo && <MetricsModal onClose={() => setShowInfo(false)} />}
+      </AnimatePresence>
       
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4"
+        className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -165,9 +178,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
       >
         
         {activityData.length > 0 && (
-          <div className="md:col-span-2 bg-card border border-border rounded-2xl p-6 h-[320px] relative overflow-hidden card-elevate">
-            {/* Top accent */}
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-terracotta/40 via-ember/30 to-transparent" />
+          <div className="md:col-span-2 rule-top pt-6 h-[320px] relative">
             <div className="flex items-center justify-between mb-4">
               <h3 
                 className="font-mono text-xs text-warm-brown uppercase tracking-widest font-semibold flex items-center gap-2"
@@ -175,7 +186,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
                 <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
                 Cadência de Commits (Últimos 90 Dias)
               </h3>
-              <span className="text-[10px] font-mono text-muted-foreground bg-parchment px-2.5 py-0.5 rounded-md border border-border">
+              <span className="text-[10px] font-mono text-muted-foreground px-3 py-0.5 rounded-full border border-border">
                 STREAM CONTÍNUA
               </span>
             </div>
@@ -211,8 +222,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
         )}
 
         {languagesData.length > 0 && (
-          <div className="bg-card border border-border rounded-2xl p-6 h-[320px] flex flex-col relative overflow-hidden card-elevate">
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-olive/40 via-transparent to-transparent" />
+          <div className="rule-top pt-6 h-[320px] flex flex-col relative">
             <h3 
               className="font-mono text-xs text-warm-brown uppercase tracking-widest font-semibold mb-2 flex items-center gap-2"
             >
@@ -251,8 +261,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
         )}
 
         {radarData.length > 0 && (
-          <div className="bg-card border border-border rounded-2xl p-6 h-[320px] w-full relative overflow-hidden card-elevate flex flex-col">
-            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-terracotta/40 via-transparent to-transparent" />
+          <div className="rule-top pt-6 h-[320px] w-full relative flex flex-col">
             <h3 
               className="font-mono text-xs text-warm-brown uppercase tracking-widest font-semibold mb-2 flex items-center gap-2"
             >
