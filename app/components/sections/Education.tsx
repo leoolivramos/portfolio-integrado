@@ -5,77 +5,74 @@ import { SectionTitle } from '../ui/SectionTitle';
 import { motion, Variants } from 'framer-motion';
 
 const cardVariant: Variants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 16 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.12, ease: 'easeOut' },
+    transition: { duration: 0.5, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
 export function Education() {
   return (
-    <section id="education">
+    <section id="education" className="section-split">
       <SectionTitle title="Formação Acadêmica" icon={BookOpen} subtitle="Base da Receita" />
       
-      <div className="grid gap-4">
+      <div className="grid gap-0">
         <motion.div 
-          className="group relative p-6 bg-card border border-border rounded-2xl warm-hover overflow-hidden"
+          className="group relative rule-top py-8 px-2 sm:px-3 -mx-2 sm:-mx-3 rounded-xl transition-all duration-300 hover:bg-parchment/20"
           custom={0}
           variants={cardVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          whileHover={{ x: 3 }}
         >
-          {/* Top accent */}
-          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-terracotta/30 via-ember/20 to-transparent" />
-          
-          <div className="flex justify-between items-start gap-3">
-            <div>
-              <h3 
-                className="font-semibold text-foreground text-lg"
-                style={{ fontFamily: 'var(--font-editorial)' }}
-              >
-                Bacharelado em Ciência da Computação
-              </h3>
-              <p className="text-sm text-muted-foreground mt-1">Universidade Federal de Mato Grosso (UFMT)</p>
-            </div>
-            <span className="production-tag rounded-md shrink-0" style={{ borderStyle: 'solid', borderColor: 'var(--border)' }}>
+          {/* Hairline wipe on hover */}
+          <div className="absolute top-0 left-0 h-px w-0 bg-terracotta group-hover:w-full transition-all duration-500 ease-out" />
+
+          <div className="flex flex-wrap justify-between items-start gap-3 mb-4">
+            <span className="production-tag group-hover:border-terracotta/40 transition-colors">
               8º Semestre
             </span>
           </div>
-          <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+          <h3 
+            className="font-normal text-foreground text-2xl md:text-3xl tracking-tight leading-tight group-hover:text-terracotta transition-colors duration-300"
+            style={{ fontFamily: 'var(--font-editorial)' }}
+          >
+            Bacharelado em Ciência da Computação
+          </h3>
+          <p className="text-sm text-foreground/80 font-medium mt-2">Universidade Federal de Mato Grosso (UFMT)</p>
+          <p className="text-[15px] text-muted-foreground mt-3 leading-relaxed max-w-xl group-hover:text-foreground/90 transition-colors">
             Foco em Engenharia de Software, Estruturas de Dados Avançadas e Inteligência Artificial.
             Membro ativo da Infocorp Jr.
           </p>
         </motion.div>
         
         <motion.div 
-          className="relative p-6 bg-card border border-border rounded-2xl opacity-90 hover:opacity-100 warm-hover transition-all overflow-hidden"
+          className="group relative rule-top border-b border-border py-8 px-2 sm:px-3 -mx-2 sm:-mx-3 rounded-xl transition-all duration-300 hover:bg-parchment/20"
           custom={1}
           variants={cardVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          whileHover={{ x: 3 }}
         >
-          <div className="flex justify-between items-start gap-3">
-            <div>
-              <h3 
-                className="font-semibold text-foreground"
-                style={{ fontFamily: 'var(--font-editorial)' }}
-              >
-                Programador de Sistemas Java
-              </h3>
-              <p className="text-sm text-muted-foreground mt-1">Fic-Dev / Seciteci MT</p>
-            </div>
-            <span 
-              className="text-xs text-muted-foreground font-mono px-2 py-0.5 rounded-md bg-parchment border border-border shrink-0"
-              style={{ fontSize: '0.7rem', letterSpacing: '0.05em' }}
-            >
+          {/* Hairline wipe on hover */}
+          <div className="absolute top-0 left-0 h-px w-0 bg-terracotta group-hover:w-full transition-all duration-500 ease-out" />
+          <div className="flex flex-wrap justify-between items-start gap-3 mb-4">
+            <span className="production-tag group-hover:border-terracotta/40 transition-colors">
               Concluído 2023
             </span>
           </div>
-          <p className="text-sm text-muted-foreground mt-2.5 leading-relaxed">
+          <h3 
+            className="font-normal text-foreground text-xl md:text-2xl tracking-tight leading-tight group-hover:text-terracotta transition-colors duration-300"
+            style={{ fontFamily: 'var(--font-editorial)' }}
+          >
+            Programador de Sistemas Java
+          </h3>
+          <p className="text-sm text-foreground/80 font-medium mt-2">Fic-Dev / Seciteci MT</p>
+          <p className="text-[15px] text-muted-foreground mt-3 leading-relaxed max-w-xl group-hover:text-foreground/90 transition-colors">
             Curso intensivo de especialização. Classificação no ranking final garantiu ingresso direto no estágio da CGE-MT.
           </p>
         </motion.div>
