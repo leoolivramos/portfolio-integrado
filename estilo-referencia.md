@@ -1,53 +1,53 @@
-# Trunk — Style Reference
-> monochrome control room with one green signal light. A dark, technical, near-grayscale interface where the only color that matters is a single dot of green confirming the pipeline is alive.
+# Your workplace has the answer. Just ask Dala for it. — Style Reference
+> constellation floating on black velvet
 
 **Theme:** dark
 
 Source measurements are normalized; roles and recommendations are interpreted. Font summary lists are independent, not paired by position. HTML examples are reconstructions, not source components.
 
-Trunk is a near-monochrome command center for CI reliability: deep matte-black canvas, hairline dividers in cool gray, and a single, almost-restraint palette of black-to-white neutrals. The interface feels like an engineer's terminal that grew up into a product — flat, dense, confident, with type that whispers at display sizes (weight 300, tight tracking) and snaps to attention at body sizes. The lone chromatic accent is a single green signal that appears once in the hero illustration as a ball rolling through pipes; the rest of the system speaks in grayscale. Components sit on the canvas with minimal elevation — borders and contrast do the work, not shadows. The page alternates between a light illustrated hero and dark product sections, but the product surface is the source of truth: black ground, gray borders, white type, no decorative gradients, no noise.
+Dala operates as a dark-stage environment where black voids meet a single vivid violet accent, punctuated by amber sparks. Typography is monolithic and weightless — PPNeueMontreal at weight 400 dominates every heading at outsized scales (78–113px) with aggressive negative tracking, so headlines feel sculptural rather than informational. The visual centerpiece is a constellation of tiny multicolored triangular particles forming an organic brain shape, which acts as the brand's signature gesture: knowledge visualized as distributed intelligence rather than hierarchical data. Layout follows a spacious two-column rhythm — oversized left-aligned headlines paired with generous body copy, floating on pure black with no panels, borders, or cards. Components are intentionally reduced to their most essential form: one violet pill button, ghost text links, and large-format text blocks.
 
 ## Tokens — Colors
 
 | Name | Value | Token | Role |
 |------|-------|-------|------|
-| Obsidian | `#000000` | `--color-obsidian` | Page canvas, primary background — the ground everything sits on |
-| Carbon | `#08090b` | `--color-carbon` | Elevated card surfaces, nav text, deep backgrounds one step above the canvas |
-| Graphite | `#232323` | `--color-graphite` | Card and button borders — the hairline skeleton that defines structure |
-| Slate Mist | `#89898d` | `--color-slate-mist` | Subtle background fills, muted surface overlays |
-| Fog | `#b3b3b5` | `--color-fog` | Muted body text, secondary copy, icon fills — readable but recedes |
-| Ash | `#c1c5c8` | `--color-ash` | Icon strokes, tertiary text, soft fills |
-| Bone | `#dddddd` | `--color-bone` | Light body text variant on dark surfaces |
-| Chalk | `#e2e8f0` | `--color-chalk` | Primary hairline border color — dividers, card edges, input borders; the most-used border in the system |
-| Paper White | `#ffffff` | `--color-paper-white` | Light neutral action fill for buttons on dark surfaces. |
-| Signal Green | `#22c550` | `--color-signal-green` | Supporting palette color for small decorative accents when the core palette needs contrast. |
+| Void | `#000000` | `--color-void` | Page canvas, section backgrounds, negative space — pure black is the dominant surface, not dark gray, creating the void that lets chromatic accents float |
+| Bone White | `#ffffff` | `--color-bone-white` | Headlines, body text, icon fills, nav active state — the only typographic color, carrying maximum hierarchy on black |
+| Ash Gray | `#9a9a9a` | `--color-ash-gray` | Muted nav text, ghost link color, secondary labels — recedes behind primary text without going invisible |
+| Silver Mist | `#bdbdbd` | `--color-silver-mist` | Tertiary body text, caption-level information — the quietest readable gray, for supporting context |
+| Electric Iris | `#8052ff` | `--color-electric-iris` | Primary action buttons, logo mark, brand accents — the single saturated violet that signals interactivity and brand identity against the black void |
+| Saffron Spark | `#ffb829` | `--color-saffron-spark` | Highlight emphasis text, accent links, attention punctuation — warm yellow against violet creates the brand's chromatic tension |
+| Deep Verdant | `#15846e` | `--color-deep-verdant` | Secondary surface tint, logo gradient stop — appears as the deeper end of the brand gradient and in subtle accent washes |
 
 ## Tokens — Typography
 
-### Neue — Sole typeface across all surfaces. Weight 300 for display and hero headlines — deliberately light, anti-convention for a technical product, creating authority through restraint. Weight 400 for body copy. Weight 500 for nav, labels, and emphasized UI text. Weight 700 reserved for high-emphasis callouts. Tight negative tracking scales with size: -0.028em at 60px tightens large headlines into a single visual mass; tracking relaxes to near-zero at body sizes. The full range from 11px captions to 60px display gives the system a wide, confident scale without ever feeling like two different typefaces. · `--font-neue`
-- **Substitute:** Inter, Neue Haas Grotesk, DM Sans
-- **Weights:** 300, 400, 500, 700
-- **Sizes:** 11, 12, 14, 15, 16, 17, 18, 24, 36, 45, 56, 60
-- **Line height:** 0.94, 1.00, 1.18, 1.20, 1.25, 1.30, 1.40, 1.50, 1.60
-- **Letter spacing:** -0.028em at 60px, -0.026em at 56px, -0.018em at 36px, -0.013em at 24px, -0.009em at 17-18px
-- **Role:** Sole typeface across all surfaces. Weight 300 for display and hero headlines — deliberately light, anti-convention for a technical product, creating authority through restraint. Weight 400 for body copy. Weight 500 for nav, labels, and emphasized UI text. Weight 700 reserved for high-emphasis callouts. Tight negative tracking scales with size: -0.028em at 60px tightens large headlines into a single visual mass; tracking relaxes to near-zero at body sizes. The full range from 11px captions to 60px display gives the system a wide, confident scale without ever feeling like two different typefaces.
+### PPNeueMontreal — Single typeface across all UI contexts. Display sizes (78–113px) carry headlines at weight 400 with -0.04em tracking — the same weight as body text but massive scale creates hierarchy. Weight 200 (ultra-light) is reserved for 18px body copy, a signature choice: most AI/SaaS sites use 400 for body, but Dala strips weight to make paragraphs feel airy and non-aggressive. Weight 600 at 14px with 0.025em tracking and uppercase serves nav and small labels. The number 400 doing both 113px display and 15px body is unusual — it means the brand trusts scale, not weight, for hierarchy. · `--font-ppneuemontreal`
+- **Substitute:** Inter
+- **Weights:** 200, 400, 600, 700
+- **Sizes:** 12, 14, 15, 18, 24, 27, 36, 42, 48, 78, 113px
+- **Line height:** 0.81, 0.90, 1.00, 1.10, 1.20, 1.25, 1.30, 1.50
+- **Letter spacing:** -4.52px at 113px, -3.12px at 78px, -1.68px at 42px, -0.48px at 24px, normal at 18px body; 0.025em at 14px uppercase nav
+- **OpenType features:** `"ss01" on`
+- **Role:** Single typeface across all UI contexts. Display sizes (78–113px) carry headlines at weight 400 with -0.04em tracking — the same weight as body text but massive scale creates hierarchy. Weight 200 (ultra-light) is reserved for 18px body copy, a signature choice: most AI/SaaS sites use 400 for body, but Dala strips weight to make paragraphs feel airy and non-aggressive. Weight 600 at 14px with 0.025em tracking and uppercase serves nav and small labels. The number 400 doing both 113px display and 15px body is unusual — it means the brand trusts scale, not weight, for hierarchy.
 
 ### Type Scale
 
 | Role | Family | Weight | Size | Line Height | Letter Spacing | Token |
 |------|--------|--------|------|-------------|----------------|-------|
-| caption | — | — | 11px | 1.4 | — | `--text-caption` |
-| body | — | — | 15px | 1.5 | -0.009px | `--text-body` |
-| subheading | — | — | 18px | 1.4 | -0.009px | `--text-subheading` |
-| heading-sm | — | — | 24px | 1.3 | -0.313px | `--text-heading-sm` |
-| heading | — | — | 36px | 1.2 | -0.648px | `--text-heading` |
-| heading-lg | — | — | 45px | 1.18 | -1.17px | `--text-heading-lg` |
-| display | — | — | 56px | 1 | -1.456px | `--text-display` |
-| display-lg | — | — | 60px | 0.94 | -1.68px | `--text-display-lg` |
+| caption | — | — | 12px | 1.5 | — | `--text-caption` |
+| nav-label | — | — | 14px | 1.2 | 0.35px | `--text-nav-label` |
+| body | — | — | 18px | 1.5 | — | `--text-body` |
+| heading-2xs | — | — | 24px | 1.25 | -0.48px | `--text-heading-2xs` |
+| heading-xs | — | — | 27px | 1 | — | `--text-heading-xs` |
+| subheading | — | — | 36px | 1.2 | — | `--text-subheading` |
+| heading-sm | — | — | 42px | 1.2 | -1.68px | `--text-heading-sm` |
+| heading | — | — | 48px | 1.1 | -1.68px | `--text-heading` |
+| heading-lg | — | — | 78px | 1.1 | -3.12px | `--text-heading-lg` |
+| display | — | — | 113px | 1.1 | -4.52px | `--text-display` |
 
 ## Tokens — Spacing & Shapes
 
-**Base unit:** 4px
+**Base unit:** 6px
 
 **Density:** comfortable
 
@@ -55,162 +55,146 @@ Trunk is a near-monochrome command center for CI reliability: deep matte-black c
 
 | Name | Value | Token |
 |------|-------|-------|
-| 4 | 4px | `--spacing-4` |
-| 8 | 8px | `--spacing-8` |
+| 6 | 6px | `--spacing-6` |
 | 12 | 12px | `--spacing-12` |
-| 20 | 20px | `--spacing-20` |
+| 18 | 18px | `--spacing-18` |
 | 24 | 24px | `--spacing-24` |
-| 32 | 32px | `--spacing-32` |
+| 30 | 30px | `--spacing-30` |
 | 36 | 36px | `--spacing-36` |
-| 48 | 48px | `--spacing-48` |
 | 60 | 60px | `--spacing-60` |
+| 96 | 96px | `--spacing-96` |
+| 120 | 120px | `--spacing-120` |
 
 ### Border Radius
 
 | Element | Value |
 |---------|-------|
+| nav | 24px |
+| tags | 9999px |
 | cards | 24px |
-| pills | 999px |
-| small | 3px |
-| medium | 12px |
-| buttons | 18px |
+| buttons | 24px |
 
 ### Layout
 
-- **Page max-width:** 1200px
-- **Section gap:** 80px
-- **Card padding:** 24px
-- **Element gap:** 12px
+- **Page max-width:** 1280px
+- **Section gap:** 60-120px
+- **Card padding:** 24-38px
+- **Element gap:** 6-18px
 
 ## Components
 
-### Primary Navigation Bar
-**Role:** Top-level site navigation
+### Primary Action Button
+**Role:** Filled violet pill, the sole interactive CTA
 
-Transparent or canvas-colored bar with the Trunk wordmark on the left (logo + text), centered nav links (Platform, Customers, Docs, Pricing, Resources) at 14px weight 500, and a right-aligned 'Book a demo' filled button plus 'Sign in' text link. Height ~56px, full-bleed width, no visible bottom border — the nav floats on the dark canvas.
+Background #8052ff (Electric Iris), white text, 22.5px border-radius (pill), 14.4px vertical padding × 15.96px horizontal padding. PPNeueMontreal 14px weight 400 or 600, uppercase with 0.025em tracking. The high radius (22.5px on ~45px height) creates a full pill shape — soft, friendly, unmistakable as the primary action.
 
-### Book a Demo Button (Filled)
-**Role:** Primary CTA
+### Ghost Text Button
+**Role:** Underlined or bare text link, secondary action
 
-Dark filled button, background #08090b with #232323 border, 18px border-radius, 9px 12px padding, text 14px weight 500 in #ffffff. The inverse: the light version (shown in hero) uses #08090b background with #ffffff text. This is the only filled button in the system.
+No background, no border, color #ffffff or #9a9a9a. PPNeueMontreal 14px weight 400. Used for nav items and inline links. The absence of any container means visual hierarchy comes entirely from type weight and tracking.
 
-### Documentation Button (Ghost/Outlined)
-**Role:** Secondary action
+### Logo Lockup
+**Role:** Brand mark + wordmark in header
 
-Ghost button with transparent background, 18px border-radius, 9px 12px padding, text 14px weight 500 in #ffffff. No visible border — relies on contrast against the dark background.
+Small triangular icon in #8052ff (violet) with a gradient fade through #15846 (teal), paired with 'Dala' wordmark in white. The icon is a stylized angular fragment — geometric, sharp-edged, echoing the triangular particles in the hero visualization.
 
-### Hero Section
-**Role:** First-screen brand impression
+### Team Member Card
+**Role:** Portrait + name + role display
 
-Light illustrated background (grayscale line-art landscape of pipes, mountains, trees) with a single green ball rolling through the central pipe. Centered text stack: 'Keep CI Green' at 56-60px weight 300 with -1.68px tracking, subtitle at 18px weight 400, then two buttons (Book a demo filled + Documentation ghost) side by side. Below: a trust line in small muted text and a row of customer logos in grayscale. The hero is the one moment color appears — a single green dot in a sea of black-and-white line art.
+No background, no border, no shadow. Large rounded-rectangle portrait photo (~24px corner radius) with role label in 12px uppercase #8052ff and name in large white display type below. Social icons (Twitter, LinkedIn) appear as small inline glyphs. Cards float on the black canvas with only whitespace separation.
 
-### Customer Logo Bar
-**Role:** Social proof strip
+### Carousel Navigation Dot
+**Role:** Indicator for slide position in team/investor carousels
 
-Horizontal row of 7-8 customer logos (Faire, Brex, Gusto, Zillow, Chick-fil-A, Google, Metabase) rendered in white on the dark canvas. Logos are flat, monochrome white, evenly spaced with ~40-60px gaps. No logos with color — all desaturated to match the system's grayscale discipline.
+Small filled circle ~8px diameter, #8052ff violet for active state. Inactive dots are dimmer or omitted. Padding is minimal — sits directly in the content flow without a container.
 
-### Feature Card (Screenshot + Text)
-**Role:** Product feature explanation
+### Hero Constellation Visualization
+**Role:** Signature brand imagery — brain-shape particle cloud
 
-Two-column card on dark canvas. Left: product screenshot shown inside a card with 12-24px radius, 1px #e2e8f0 border, 1:1 or 4:3 aspect ratio. Right: heading at 24-36px weight 300 with tight tracking, subtext at 16-18px weight 400 in #b3b3b5. Cards have no shadow — the border alone defines the surface.
+Thousands of tiny triangular glyphs (outlined, 1-2px) in a full spectrum of vivid colors (violet, amber, teal, magenta, blue) forming an organic brain or cloud shape against pure black. Individual particles are scattered/ambient across the surrounding space as well. This is the site's defining visual — not a static image but an animated field of point-lights.
 
-### Testimonial Card
-**Role:** Customer quote display
+### Section Headline Block
+**Role:** Oversized left-aligned headline + supporting copy
 
-Dark card (#08090b background or transparent on canvas) with 24px radius, 1px #e2e8f0 border, 24px padding. Customer logo at top-left (monochrome white), quote text at 15-16px weight 400 in #ffffff, author name at 12-14px weight 500 and role/company at 12-14px weight 400 in #b3b3b5. Cards are horizontally scrollable in a carousel with left/right navigation buttons.
+Two-column asymmetric layout: headline at 78–113px weight 400 PPNeueMontreal in white with -0.04em tracking, occupying left half. Body copy at 18px weight 200 (ultra-light) in white or silver, with a small uppercase label (#ffb829 amber) above the body. No boxes, no borders — pure typographic composition on black.
 
-### Carousel Navigation Buttons
-**Role:** Scrollable list controls
+### Navigation Bar
+**Role:** Top-aligned site navigation
 
-Circular buttons (24px radius) with 1px #e2e8f0 border, transparent background, containing a left/right chevron icon in #ffffff. 32x32px size, sit centered below the testimonial row.
+Transparent background sitting directly on black canvas. Logo left, nav links center/right (Manifesto, Team, Blog) in 14px uppercase PPNeueMontreal with 0.025em tracking. Active or hover state: white. Inactive: #9a9a9a. Request Access button (filled violet pill) anchors the right edge. No border, no backdrop blur on the nav itself.
 
-### Section Heading
-**Role:** Section-level title
+### Ambient Particle Field
+**Role:** Decorative scattered triangle glyphs
 
-Centered heading at 36-45px weight 300 with -0.018em to -0.026em tracking in #ffffff. No subheading decoration. Tight letter-spacing on large light-weight type creates a condensed, editorial feel — the headline reads as a single confident mark rather than loose words.
-
-### Dashboard Screenshot Frame
-**Role:** Product UI showcase
-
-Large product screenshot (CI dashboard with test history, flaky test detection, repository settings) displayed inside a card with 12-24px radius and 1px #e2e8f0 border. The screenshot itself contains color (test pass/fail bars, status indicators) but is framed within the achromatic system. Sits on #000000 canvas.
-
-### Pill Button
-**Role:** Tag or filter element
-
-Fully rounded button (999px radius) with 1px #e2e8f0 border, 3-5px vertical padding, 9-12px horizontal padding, text 12-14px weight 500 in #ffffff. Used for tags, status filters, or compact interactive labels.
+Small outlined triangles in various chromatic colors (#8052ff violet, #ffb829 amber, #15846 teal, plus assorted purples and blues) scattered at low opacity across the background outside the main constellation. Creates atmospheric depth without competing with the central visualization.
 
 ## Do's and Don'ts
 
 ### Do
-- Use weight 300 for all display and hero headlines — this is the signature anti-loud choice that makes the type feel editorial and confident
-- Use #e2e8f0 for all hairline borders and dividers — it is the structural backbone of the system at 444+ uses
-- Maintain a 24px border-radius for all cards and 18px for all buttons — never use sharp corners on interactive elements
-- Keep the palette to 9 neutrals + 1 green — if a new color feels necessary, reach for a different shade of gray first
-- Reserve the green accent for confirmation/success signals only — never use it decoratively or for multiple purposes
-- Use tight negative letter-spacing that scales with size: -0.028em at 60px down to -0.009em at 18px
-- Place product screenshots and cards on the black canvas with 1px #e2e8f0 borders — let borders define surfaces, not shadows
+- Use #8052ff (Electric Iris) exclusively for filled action buttons — no other saturated color should appear as a button background
+- Set every headline at weight 400, never bold — Dala achieves hierarchy through scale (78–113px) and tracking (-0.04em), not font weight
+- Use PPNeueMontreal weight 200 for 18px body text — the ultra-light weight is a signature, do not substitute weight 400
+- Maintain pure #000000 black as every section background — never use dark gray panels or card surfaces; the void is the design
+- Apply -0.04em letter-spacing on all display sizes 42px and above, converting to approximately -4.52px at 113px
+- Use 24px border-radius for buttons, cards, and nav elements as the consistent radius token — pill shapes only at very small sizes
+- Let the particle constellation be the only hero imagery — do not introduce photography, illustrations, or product screenshots into the hero region
 
 ### Don't
-- Never add chromatic colors beyond the single green signal — the system is 97% grayscale for a reason
-- Never use weight 600+ for headlines — the light weights are the brand voice, heavier weights break the restraint
-- Never use box-shadows to create depth — this system uses flat surfaces and border contrast instead
-- Never add gradients — the system is deliberately flat and matte
-- Never use the green accent on UI controls, buttons, or links — it belongs only in the 'passing signal' context
-- Never use letter-spacing of 0 or positive values on display sizes — the tight tracking is part of the type identity
-- Never use borders thinner than 1px or colors outside the defined 9-step neutral scale — structural consistency requires discipline
+- Do not use filled violet (#8052ff) for large background blocks or full sections — it is a button and accent color, not a surface
+- Do not set body text at weight 400 — Dala's signature ultra-light (200) body copy is what distinguishes the reading experience
+- Do not introduce card containers with borders, shadows, or background fills — elements float on black with whitespace alone
+- Do not use color #0000ee (default browser link blue) — never specify it; use #ffb829 amber or #ffffff for links
+- Do not add gradients to UI components — Dala's palette is flat; gradients belong only in the logo and the particle visualization
+- Do not use system fonts as substitutes when PPNeueMontreal-equivalent geometry matters — use Inter as fallback but preserve the weight 200 body and weight 400 headline convention
+- Do not place multiple filled buttons in proximity — the violet pill is reserved for singular primary actions per view
 
 ## Surfaces
 
 | Level | Name | Value | Purpose |
 |-------|------|-------|---------|
-| 0 | Canvas | `#000000` | Base page background — the ground plane |
-| 1 | Elevated Card | `#08090b` | Card and panel surfaces one step above canvas |
-| 2 | Subtle Fill | `#89898d` | Rarely used muted surface for overlays or secondary fills |
-| 3 | Inverse Surface | `#ffffff` | Light surfaces when inversion is needed (rare — hero, filled buttons) |
+| 0 | Void Canvas | `#000000` | Full-page background, all section backgrounds, the base void |
+| 1 | Deep Verdant Tint | `#15846` | Subtle accent surface for brand gradient and logo depth |
+| 2 | Electric Iris | `#8052ff` | Highest surface — filled buttons, active interactive elements only |
 
 ## Elevation
 
-This system deliberately avoids drop shadows. Depth and surface hierarchy are communicated through three mechanisms: (1) background-color stepping from #000000 → #08090b → #232323, (2) 1px #e2e8f0 hairline borders that define card edges against the canvas, and (3) contrast between text weight and size against the flat background. The result is a flat, technical, terminal-like aesthetic where every pixel is either text, border, or content — no decorative depth.
+Dala uses no shadows or elevation. All hierarchy is achieved through scale, color contrast, and whitespace on a flat black canvas. The absence of cards-with-shadows is deliberate — the void is the design, and any shadow would break the floating-in-space quality of the typography and particle constellation.
 
 ## Imagery
 
-The visual language is split between two distinct modes: (1) Hero illustration: hand-drawn line-art landscape in grayscale — pipes snaking through mountains, trees, geometric terrain — with a single green ball as the only color. The illustration is flat, architectural, and slightly playful, evoking a blueprint or technical diagram. (2) Product screenshots: real UI captures of the Trunk dashboard (test history charts, flaky test detection panels, repository settings) shown at large scale with 1px gray borders. The screenshots contain their own internal color (status indicators, charts) but are framed within the achromatic system. Photography: none. The brand relies on illustration and product UI as its visual content — no stock photos, no lifestyle imagery.
+Imagery is entirely procedural and abstract — no photography except team portraits. The signature visual is a dense cloud of thousands of tiny outlined triangular particles in a full vivid spectrum (violets, ambers, teals, magentas, blues) forming an organic brain/neural shape. This particle field is animated and acts as both hero art and brand identity. Surrounding ambient particles drift at lower density across the page background. Triangles are outlined, 1–2px stroke, sharp-edged, in saturated chromatic colors — never grayscale. Team portraits appear as large rounded-rectangle crops (24px radius) without frames or overlays. No product screenshots, no lifestyle photography, no 3D renders — the particle system IS the visual brand.
 
 ## Layout
 
-Page model: max-width ~1200px centered, with content centered within. The hero is the one full-bleed section (light illustrated background extending edge-to-edge), while all product content lives in contained max-width bands on the dark canvas. Section rhythm: the page begins with a light hero, then transitions to dark product sections that continue to the footer. Content arrangement: centered text stacks for section headings, then two-column text+screenshot pairs for features, then a single-row horizontally-scrollable testimonial carousel. Grid usage: testimonial cards in a horizontal scroll (not a grid), feature sections as two-column pairs, no multi-column card grids. Density: spacious — generous 80px section gaps, breathing room around each element. Navigation: minimal top bar, no sidebar, no mega-menu.
+Full-bleed sections on pure black canvas, max content width ~1280px centered. Hero is a two-column asymmetric split: oversized left-aligned headline (113px) with body copy and CTA on the left half, particle brain visualization occupying the right half at massive scale. Subsequent sections alternate the two-column composition (visual-left/text-right, then text-left/visual-right) creating a zigzag reading rhythm. Section gaps are generous (60–120px vertical). No card grids, no pricing tables, no multi-column feature blocks — content lives in spacious two-column text+visual arrangements. Navigation is a minimal transparent top bar, no sidebar, no mega-menu. Density is extremely spacious — one or two elements per viewport, never information-dense.
 
 ## Agent Prompt Guide
 
 ## Quick Color Reference
-- text: #ffffff
-- background: #000000
-- border: #e2e8f0
-- accent: #22c550 (single signal green — hero illustration only)
-- surface elevated: #08090b
-- surface border: #232323
-- muted text: #b3b3b5
-- primary action: #08090b (filled action)
+- Text: #ffffff (primary), #9a9a9a (secondary), #bdbdbd (tertiary)
+- Background: #000000 (canvas only)
+- Border: none — Dala uses no visible borders or dividers
+- Accent: #ffb829 (Saffron Spark) for emphasis highlights
+- primary action: #8052ff (filled action)
 
 ## Example Component Prompts
 
-1. **Hero Section**: Light illustrated background. Headline 'Keep CI Green' at 56px neue weight 300, #08090b color, letter-spacing -0.026em. Subtitle at 18px weight 400, #08090b. Two buttons side by side: a filled 'Book a demo' (#08090b background, #ffffff text, 18px radius, 9px 12px padding) and a ghost 'Documentation' (transparent background, #08090b text, no border, same radius/padding). Trust line at 14px weight 400 in #b3b3b5. Row of 7 customer logos in monochrome below.
+1. **Hero Section**: Full-bleed #000000 canvas. Two-column split. Left: headline at 78px PPNeueMontreal weight 400, #ffffff, letter-spacing -3.12px, reading 'Unlock collective wisdom.' Body copy at 18px weight 200 PPNeueMontreal, #ffffff, max-width 480px. Above body, a small uppercase label at 14px weight 600, #ffb829 amber, letter-spacing 0.35px. Below body, a filled violet pill button: #8052ff background, white text, 14px weight 600 uppercase, 22.5px border-radius, 14.4px vertical padding × 16px horizontal padding. Right: large particle constellation visualization (thousands of tiny colored triangles forming a brain shape).
 
-2. **Feature Card**: Dark canvas (#000000). Card with #08090b background, 1px #e2e8f0 border, 24px radius, 24px padding. Product screenshot inside the card with 12px radius. Heading 'Quarantine flaky tests automatically' at 36px neue weight 300, #ffffff, letter-spacing -0.018em. Body text at 16px weight 400, #b3b3b5.
+2. **Section Headline + Body**: #000000 background. Left-aligned headline at 42px PPNeueMontreal weight 400, #ffffff, letter-spacing -1.68px. Supporting body text at 18px weight 200 PPNeueMontreal, #bdbdbd, max-width 520px. No boxes, no borders, no cards — text floats on void.
 
-3. **Testimonial Card**: Transparent background on dark canvas. 1px #e2e8f0 border, 24px radius, 24px padding. Customer logo (monochrome white) at top-left. Quote text at 15px weight 400, #ffffff. Author name at 12px weight 500, #ffffff. Role/company at 12px weight 400, #b3b3b5.
+3. **Navigation Bar**: Transparent background on black. Left: small violet (#8052ff) triangular logo icon + 'Dala' wordmark in #ffffff 14px. Right: nav links 'Manifesto', 'Team', 'Blog' in 14px PPNeueMontreal weight 600, uppercase, 0.025em letter-spacing, color #9a9a9a (inactive) or #ffffff (active). Far right: filled violet pill 'Request Access' button — #8052ff background, white text, 22.5px radius, 14px weight 600 uppercase.
 
-4. **Pill Button**: 999px border-radius, 1px #e2e8f0 border, transparent background, 4px 9px padding, 12px neue weight 500, #ffffff text. Used for tags and status labels.
+4. **Team Card**: No background, no border. Large portrait photo with 24px border-radius. Above name: role label 'CO FOUNDER & CTO' at 12px PPNeueMontreal weight 400, #8052ff, uppercase. Below photo: name 'Joel Kang' at 27px PPNeueMontreal weight 400, #ffffff. Social icons inline as small glyphs in #9a9a9a.
 
-5. **Section Heading**: Centered on dark canvas. 45px neue weight 300, #ffffff, letter-spacing -0.026em. No subtitle or decoration. Followed by 80px vertical gap to content.
+5. **Carousel Indicator**: Two small dots ~8px, filled #8052ff for active position, no background or border around the dot container. Sits centered below carousel content with 30px gap.
 
 ## Similar Brands
 
-- **Linear** — Same dark canvas, monochrome interface, hairline borders for structure, tight letter-spacing on light-weight display headlines, and zero decorative gradients or shadows
-- **Vercel** — Black-and-white minimalism with technical precision, flat surfaces, and a confidence that comes from typographic restraint rather than visual ornamentation
-- **Render** — Dark-mode developer tool with a single accent moment, generous spacing, and a product-forward layout that lets screenshots and code do the talking
-- **Plausible Analytics** — Near-grayscale palette with minimal color, flat card surfaces with thin borders, and a focus on typography as the primary visual language
-- **Resend** — Dark devtool aesthetic with one distinctive brand color moment, clean type hierarchy, and illustration-as-hero instead of photography
+- **Linear** — Same dark-void aesthetic with oversized weight-400 display type, generous whitespace, and a single saturated accent (violet/blue) reserved for action — both treat black as an active design material rather than a fallback
+- **Vercel** — Identical pattern: pure black canvas, geometric minimalism, single brand color, weight-400 typography at massive display sizes with aggressive negative tracking — both make black the hero
+- **Anthropic** — Dark mode-first philosophy with serif-free geometric sans, restrained color palette where one accent dominates, and a typographic system that trusts scale over weight for hierarchy
+- **Runway** — Dark void aesthetic with particle/constellation-style generative visuals as brand identity, combined with ultra-light body type and single vivid accent color for CTAs
 
 ## Quick Start
 
@@ -219,89 +203,83 @@ Page model: max-width ~1200px centered, with content centered within. The hero i
 ```css
 :root {
   /* Colors */
-  --color-obsidian: #000000;
-  --color-carbon: #08090b;
-  --color-graphite: #232323;
-  --color-slate-mist: #89898d;
-  --color-fog: #b3b3b5;
-  --color-ash: #c1c5c8;
-  --color-bone: #dddddd;
-  --color-chalk: #e2e8f0;
-  --color-paper-white: #ffffff;
-  --color-signal-green: #22c550;
+  --color-void: #000000;
+  --color-bone-white: #ffffff;
+  --color-ash-gray: #9a9a9a;
+  --color-silver-mist: #bdbdbd;
+  --color-electric-iris: #8052ff;
+  --color-saffron-spark: #ffb829;
+  --color-deep-verdant: #15846e;
 
   /* Typography — Font Families */
-  --font-neue: 'Neue', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-ppneuemontreal: 'PPNeueMontreal', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
-  --text-caption: 11px;
-  --leading-caption: 1.4;
-  --text-body: 15px;
+  --text-caption: 12px;
+  --leading-caption: 1.5;
+  --text-nav-label: 14px;
+  --leading-nav-label: 1.2;
+  --tracking-nav-label: 0.35px;
+  --text-body: 18px;
   --leading-body: 1.5;
-  --tracking-body: -0.009px;
-  --text-subheading: 18px;
-  --leading-subheading: 1.4;
-  --tracking-subheading: -0.009px;
-  --text-heading-sm: 24px;
-  --leading-heading-sm: 1.3;
-  --tracking-heading-sm: -0.313px;
-  --text-heading: 36px;
-  --leading-heading: 1.2;
-  --tracking-heading: -0.648px;
-  --text-heading-lg: 45px;
-  --leading-heading-lg: 1.18;
-  --tracking-heading-lg: -1.17px;
-  --text-display: 56px;
-  --leading-display: 1;
-  --tracking-display: -1.456px;
-  --text-display-lg: 60px;
-  --leading-display-lg: 0.94;
-  --tracking-display-lg: -1.68px;
+  --text-heading-2xs: 24px;
+  --leading-heading-2xs: 1.25;
+  --tracking-heading-2xs: -0.48px;
+  --text-heading-xs: 27px;
+  --leading-heading-xs: 1;
+  --text-subheading: 36px;
+  --leading-subheading: 1.2;
+  --text-heading-sm: 42px;
+  --leading-heading-sm: 1.2;
+  --tracking-heading-sm: -1.68px;
+  --text-heading: 48px;
+  --leading-heading: 1.1;
+  --tracking-heading: -1.68px;
+  --text-heading-lg: 78px;
+  --leading-heading-lg: 1.1;
+  --tracking-heading-lg: -3.12px;
+  --text-display: 113px;
+  --leading-display: 1.1;
+  --tracking-display: -4.52px;
 
   /* Typography — Weights */
-  --font-weight-light: 300;
+  --font-weight-extralight: 200;
   --font-weight-regular: 400;
-  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
   /* Spacing */
-  --spacing-unit: 4px;
-  --spacing-4: 4px;
-  --spacing-8: 8px;
+  --spacing-unit: 6px;
+  --spacing-6: 6px;
   --spacing-12: 12px;
-  --spacing-20: 20px;
+  --spacing-18: 18px;
   --spacing-24: 24px;
-  --spacing-32: 32px;
+  --spacing-30: 30px;
   --spacing-36: 36px;
-  --spacing-48: 48px;
   --spacing-60: 60px;
+  --spacing-96: 96px;
+  --spacing-120: 120px;
 
   /* Layout */
-  --page-max-width: 1200px;
-  --section-gap: 80px;
-  --card-padding: 24px;
-  --element-gap: 12px;
+  --page-max-width: 1280px;
+  --section-gap: 60-120px;
+  --card-padding: 24-38px;
+  --element-gap: 6-18px;
 
   /* Border Radius */
-  --radius-sm: 3px;
-  --radius-xl: 12px;
-  --radius-2xl: 18px;
   --radius-3xl: 24px;
-  --radius-3xl-2: 32px;
-  --radius-full: 999px;
+  --radius-full: 9999px;
 
   /* Named Radii */
+  --radius-nav: 24px;
+  --radius-tags: 9999px;
   --radius-cards: 24px;
-  --radius-pills: 999px;
-  --radius-small: 3px;
-  --radius-medium: 12px;
-  --radius-buttons: 18px;
+  --radius-buttons: 24px;
 
   /* Surfaces */
-  --surface-canvas: #000000;
-  --surface-elevated-card: #08090b;
-  --surface-subtle-fill: #89898d;
-  --surface-inverse-surface: #ffffff;
+  --surface-void-canvas: #000000;
+  --surface-deep-verdant-tint: #15846;
+  --surface-electric-iris: #8052ff;
 }
 ```
 
@@ -310,62 +288,58 @@ Page model: max-width ~1200px centered, with content centered within. The hero i
 ```css
 @theme {
   /* Colors */
-  --color-obsidian: #000000;
-  --color-carbon: #08090b;
-  --color-graphite: #232323;
-  --color-slate-mist: #89898d;
-  --color-fog: #b3b3b5;
-  --color-ash: #c1c5c8;
-  --color-bone: #dddddd;
-  --color-chalk: #e2e8f0;
-  --color-paper-white: #ffffff;
-  --color-signal-green: #22c550;
+  --color-void: #000000;
+  --color-bone-white: #ffffff;
+  --color-ash-gray: #9a9a9a;
+  --color-silver-mist: #bdbdbd;
+  --color-electric-iris: #8052ff;
+  --color-saffron-spark: #ffb829;
+  --color-deep-verdant: #15846e;
 
   /* Typography */
-  --font-neue: 'Neue', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-ppneuemontreal: 'PPNeueMontreal', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
-  --text-caption: 11px;
-  --leading-caption: 1.4;
-  --text-body: 15px;
+  --text-caption: 12px;
+  --leading-caption: 1.5;
+  --text-nav-label: 14px;
+  --leading-nav-label: 1.2;
+  --tracking-nav-label: 0.35px;
+  --text-body: 18px;
   --leading-body: 1.5;
-  --tracking-body: -0.009px;
-  --text-subheading: 18px;
-  --leading-subheading: 1.4;
-  --tracking-subheading: -0.009px;
-  --text-heading-sm: 24px;
-  --leading-heading-sm: 1.3;
-  --tracking-heading-sm: -0.313px;
-  --text-heading: 36px;
-  --leading-heading: 1.2;
-  --tracking-heading: -0.648px;
-  --text-heading-lg: 45px;
-  --leading-heading-lg: 1.18;
-  --tracking-heading-lg: -1.17px;
-  --text-display: 56px;
-  --leading-display: 1;
-  --tracking-display: -1.456px;
-  --text-display-lg: 60px;
-  --leading-display-lg: 0.94;
-  --tracking-display-lg: -1.68px;
+  --text-heading-2xs: 24px;
+  --leading-heading-2xs: 1.25;
+  --tracking-heading-2xs: -0.48px;
+  --text-heading-xs: 27px;
+  --leading-heading-xs: 1;
+  --text-subheading: 36px;
+  --leading-subheading: 1.2;
+  --text-heading-sm: 42px;
+  --leading-heading-sm: 1.2;
+  --tracking-heading-sm: -1.68px;
+  --text-heading: 48px;
+  --leading-heading: 1.1;
+  --tracking-heading: -1.68px;
+  --text-heading-lg: 78px;
+  --leading-heading-lg: 1.1;
+  --tracking-heading-lg: -3.12px;
+  --text-display: 113px;
+  --leading-display: 1.1;
+  --tracking-display: -4.52px;
 
   /* Spacing */
-  --spacing-4: 4px;
-  --spacing-8: 8px;
+  --spacing-6: 6px;
   --spacing-12: 12px;
-  --spacing-20: 20px;
+  --spacing-18: 18px;
   --spacing-24: 24px;
-  --spacing-32: 32px;
+  --spacing-30: 30px;
   --spacing-36: 36px;
-  --spacing-48: 48px;
   --spacing-60: 60px;
+  --spacing-96: 96px;
+  --spacing-120: 120px;
 
   /* Border Radius */
-  --radius-sm: 3px;
-  --radius-xl: 12px;
-  --radius-2xl: 18px;
   --radius-3xl: 24px;
-  --radius-3xl-2: 32px;
-  --radius-full: 999px;
+  --radius-full: 9999px;
 }
 ```
