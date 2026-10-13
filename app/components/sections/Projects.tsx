@@ -6,7 +6,7 @@ import { SectionTitle } from '../ui/SectionTitle';
 import { Project } from '../../types';
 import { ProjectModal } from '../ui/ProjectModal';
 import { ScoreExplanationModal } from '../ui/ScoreExplanationModal';
-import { motion, Variants } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 const cardVariant: Variants = {
   hidden: { opacity: 0, y: 16 },
@@ -30,7 +30,7 @@ export function Projects({ data }: { data: Project[] }) {
   const hasMore = visibleCount < sortedProjects.length;
 
   return (
-    <section id="projects" className="scroll-mt-24 relative">
+    <section id="projects" className="section-split scroll-mt-24 relative">
       <SectionTitle 
         title="Carta de Projetos" 
         icon={Terminal} 
@@ -38,53 +38,59 @@ export function Projects({ data }: { data: Project[] }) {
       />
       
       {/* Header controls & description */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 -mt-2">
-        <p className="text-sm md:text-base text-muted-foreground max-w-2xl leading-relaxed">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-5">
+        <p className="lead-text text-foreground/75 max-w-xl text-balance">
           Sistemas e arquiteturas desenvolvidos com matérias-primas modernas, sincronizados diretamente do GitHub e avaliados pelo índice de maturação técnica.
         </p>
 
-        <div className="flex items-center gap-2.5 self-stretch md:self-auto justify-between md:justify-end">
-          <button
+        <div className="flex items-center gap-2.5 self-stretch md:self-auto justify-between md:justify-end shrink-0">
+          <motion.button
             onClick={() => setShowScoreInfo(true)}
-            className="flex items-center gap-1.5 text-xs font-mono font-medium text-muted-foreground hover:text-terracotta transition-colors bg-parchment px-3 py-1.5 rounded-lg border border-border hover:border-terracotta/40 cursor-pointer shadow-xs"
+            className="flex items-center gap-1.5 text-xs font-mono font-medium text-muted-foreground hover:text-terracotta transition-colors px-3 py-2 rounded-xl border border-border hover:border-terracotta/40 cursor-pointer shadow-2xs"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
           >
             <Info size={13} className="text-terracotta" />
             <span>Como?</span>
-          </button>
+          </motion.button>
 
-          <div className="flex gap-1 bg-parchment p-1 rounded-xl border border-border">
-            <button
+          <div className="flex gap-1 p-1 rounded-xl border border-border bg-card/60">
+            <motion.button
               onClick={() => setViewMode('grid')}
               className={`p-1.5 rounded-lg transition-all cursor-pointer ${
                 viewMode === 'grid' 
-                  ? 'bg-card text-foreground shadow-xs border border-border font-bold' 
+                  ? 'bg-parchment text-foreground font-bold shadow-2xs' 
                   : 'text-muted-foreground hover:text-foreground'
               }`}
               title="Visualização em grade"
+              whileTap={{ scale: 0.92 }}
             >
               <Grid3x3 size={16} />
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               onClick={() => setViewMode('list')}
               className={`p-1.5 rounded-lg transition-all cursor-pointer ${
                 viewMode === 'list' 
-                  ? 'bg-card text-foreground shadow-xs border border-border font-bold' 
+                  ? 'bg-parchment text-foreground font-bold shadow-2xs' 
                   : 'text-muted-foreground hover:text-foreground'
               }`}
               title="Visualização em lista"
+              whileTap={{ scale: 0.92 }}
             >
               <List size={16} />
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
 
-      {showScoreInfo && <ScoreExplanationModal onClose={() => setShowScoreInfo(false)} />}
+      <AnimatePresence>
+        {showScoreInfo && <ScoreExplanationModal onClose={() => setShowScoreInfo(false)} />}
+      </AnimatePresence>
 
-      {/* Projects Collection */}
+      {/* Projects Collection — entries separated by hairline rules */}
       <div className={viewMode === 'grid' 
-        ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" 
-        : "flex flex-col gap-4"
+        ? "grid grid-cols-1 md:grid-cols-2 gap-x-10" 
+        : "flex flex-col"
       }>
         {visibleProjects.map((repo, idx) => {
           const score = repo.projectScore?.finalScore ?? 0;
@@ -95,40 +101,45 @@ export function Projects({ data }: { data: Project[] }) {
             <motion.div 
               key={repo.id} 
               onClick={() => setSelectedProject(repo)}
-              className={`relative block bg-card border border-border rounded-2xl card-elevate cursor-pointer group overflow-hidden ${
-                viewMode === 'grid' ? 'p-6 flex flex-col justify-between h-full' : 'p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-5'
+              className={`relative block border-t border-border cursor-pointer group py-7 transition-colors hover:bg-parchment/20 px-2 sm:px-3 -mx-2 sm:-mx-3 rounded-xl ${
+                viewMode === 'grid' ? 'flex flex-col justify-between h-full' : 'flex flex-col md:flex-row md:items-center justify-between gap-5'
               }`}
               custom={idx}
               variants={cardVariant}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-30px" }}
+              whileHover={{ x: 3 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
             >
-              {/* Top Artisanal Brand Accent Line */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-terracotta via-ember to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Hairline wipe on hover */}
+              <div className="absolute top-0 left-0 h-px w-0 bg-terracotta group-hover:w-full transition-all duration-500 ease-out" />
 
               <div className={viewMode === 'list' ? 'flex-1 min-w-0' : ''}>
                 {/* Header: Title and Language/Status Badge */}
-                <div className="flex items-start justify-between gap-3 mb-2.5">
+                <div className="flex items-start justify-between gap-3 mb-3">
                   <div>
-                    <span className="text-[10px] font-mono text-terracotta uppercase tracking-wider block font-semibold mb-1">
+                    <span className="eyebrow block mb-2">
                       {repo.language ? `${repo.language}` : 'Repositório Autoral'}
                     </span>
                     <h3 
-                      className="font-serif font-bold text-foreground text-lg group-hover:text-terracotta transition-colors flex items-center gap-1.5"
+                      className="font-serif font-normal tracking-tight text-foreground text-2xl group-hover:text-terracotta transition-colors flex items-center gap-1.5"
                     >
                       <span>{repo.name}</span>
-                      <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-terracotta shrink-0" />
+                      <ArrowUpRight 
+                        size={16} 
+                        className="opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-terracotta shrink-0" 
+                      />
                     </h3>
                   </div>
 
-                  {/* Status Badge — Professional Craft Framing */}
-                  <span className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-md border font-semibold shrink-0
+                  {/* Status Badge */}
+                  <span className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border font-semibold shrink-0 group-hover:scale-105 transition-transform duration-200
                     ${isHot 
-                      ? 'bg-ember/10 text-ember border-ember/30' 
+                      ? 'text-ember border-ember/40 bg-ember/5' 
                       : isConsistent 
-                      ? 'bg-olive/10 text-olive border-olive/30' 
-                      : 'bg-warm-brown/10 text-warm-brown border-warm-brown/30'
+                      ? 'text-olive border-olive/40 bg-olive/5' 
+                      : 'text-warm-brown border-warm-brown/30 bg-warm-brown/5'
                     }`}
                   >
                     <div className="flex items-center">
@@ -138,30 +149,30 @@ export function Projects({ data }: { data: Project[] }) {
                 </div>
                 
                 {/* Description */}
-                <p className={`text-xs md:text-sm text-muted-foreground leading-relaxed mb-4 ${viewMode === 'grid' ? 'line-clamp-2' : 'line-clamp-2 md:line-clamp-1'}`}>
+                <p className={`text-sm md:text-[15px] text-muted-foreground leading-relaxed mb-5 ${viewMode === 'grid' ? 'line-clamp-2' : 'line-clamp-2 md:line-clamp-1'}`}>
                   {repo.description || "Consulte a documentação e arquitetura técnica deste repositório."}
                 </p>
               </div>
 
               {/* Technical Calibration & Metrics */}
               {repo.projectScore && (
-                <div className={viewMode === 'list' ? 'md:w-80 shrink-0 space-y-2' : 'mt-4 pt-3.5 border-t border-border/60 space-y-2.5'}>
+                <div className={viewMode === 'list' ? 'md:w-80 shrink-0 space-y-2' : 'space-y-2.5'}>
                   {/* Calibrated Meter Header */}
                   <div className="flex justify-between items-center text-[11px] font-mono">
                     <span className="text-muted-foreground uppercase tracking-wider flex items-center gap-1">
                       <CheckCircle2 size={12} className="text-olive" />
                       Índice de Maturação
                     </span>
-                    <span className="font-bold text-foreground font-serif text-sm">
+                    <span className="text-foreground font-serif text-lg tracking-tight group-hover:text-terracotta transition-colors">
                       {score.toFixed(0)}%
                     </span>
                   </div>
                   
-                  {/* Fine Precision Gauge (Hairline Craft Meter) */}
-                  <div className="h-1.5 w-full bg-parchment rounded-full overflow-hidden border border-border/40 relative">
+                  {/* Fine Precision Gauge */}
+                  <div className="h-px w-full bg-border relative overflow-hidden">
                     <div 
-                      className={`h-full transition-all duration-1000 ease-out rounded-full
-                        ${score >= 80 ? 'bg-gradient-to-r from-terracotta to-ember' : 
+                      className={`absolute left-0 -top-px h-[3px] transition-all duration-1000 ease-out rounded-full
+                        ${score >= 80 ? 'bg-terracotta' : 
                           score >= 60 ? 'bg-olive' : 
                           'bg-warm-brown'}`} 
                       style={{ width: `${Math.min(100, Math.max(10, score))}%` }}
@@ -169,7 +180,7 @@ export function Projects({ data }: { data: Project[] }) {
                   </div>
                   
                   {/* Granular Telemetry Footnotes */}
-                  <div className="flex justify-between text-[10px] font-mono text-muted-foreground pt-0.5">
+                  <div className="flex justify-between text-[10px] font-mono text-muted-foreground pt-1">
                     <span className="flex items-center gap-1">
                       <GitCommit size={11} className="text-terracotta" />
                       Atividade: {repo.projectScore.activityScore.toFixed(0)}%
@@ -187,24 +198,28 @@ export function Projects({ data }: { data: Project[] }) {
 
       {/* Pagination control */}
       {hasMore && (
-        <div className="flex justify-center mt-10">
-          <button
+        <div className="flex justify-start mt-10 rule-top pt-10">
+          <motion.button
             onClick={() => setVisibleCount(prev => prev + 3)}
-            className="px-6 py-2.5 bg-card hover:bg-parchment text-foreground font-medium text-xs font-mono tracking-wider uppercase rounded-xl border border-border transition-all shadow-xs hover:border-terracotta/40 cursor-pointer flex items-center gap-2"
+            className="px-6 py-3 hover:bg-parchment text-foreground font-medium text-xs font-mono tracking-wider uppercase rounded-xl border border-border transition-colors hover:border-terracotta/40 cursor-pointer flex items-center gap-2 shadow-2xs"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             <span>Ver Mais Criações do Acervo</span>
-            <span className="text-terracotta font-bold">+</span>
-          </button>
+            <span className="text-terracotta font-bold transition-transform group-hover:rotate-90">+</span>
+          </motion.button>
         </div>
       )}
 
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          isOpen={!!selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            isOpen={!!selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

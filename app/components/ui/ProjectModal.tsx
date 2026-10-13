@@ -10,6 +10,7 @@ import { oneDark, oneLight } from 'react-syntax-highlighter/dist/cjs/styles/pris
 import Link from 'next/link';
 import { Project } from '../../types';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface ProjectModalProps {
   project: Project;
@@ -48,12 +49,22 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
       
-      <div 
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+      <motion.div 
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
         onClick={onClose}
       />
 
-      <div className="relative bg-card w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+      <motion.div 
+        className="relative bg-card w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden"
+        initial={{ opacity: 0, scale: 0.95, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 16 }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      >
         
         {/* Header */}
         <div className="flex items-start justify-between p-5 md:p-6 border-b border-border bg-parchment">
@@ -224,7 +235,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             <span>Ver código fonte</span>
           </Link>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
