@@ -171,14 +171,14 @@ export function Hero() {
             Ficha de Bancada Nº 01
           </span>
           <h2 className="block-heading text-foreground text-balance">
-            A Receita: Filosofia de Engenharia
+            Desenvolvedor de Software Artesanal
           </h2>
           <div className="flex flex-wrap items-center gap-2 pt-1">
             <span className="text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full border border-olive/40 text-olive font-semibold hover:border-olive transition-colors">
-              Fermentação Lenta
+              Engenharia de Software
             </span>
             <span className="text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full border border-terracotta/40 text-terracotta font-semibold hover:border-terracotta transition-colors">
-              Forno a 450°C
+              Desenvolvimento
             </span>
           </div>
         </div>

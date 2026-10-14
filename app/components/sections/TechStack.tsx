@@ -23,7 +23,7 @@ export function TechStack() {
       <SectionTitle 
         title="Arsenal Técnico" 
         icon={Cpu} 
-        subtitle="Ingredientes & Matérias-Primas Selecionadas" 
+        subtitle="Ferramentas e tecnologias utilizadas" 
       />
       
       {/* Two groups stacked in the content column, separated by hairline rules */}
@@ -41,7 +41,7 @@ export function TechStack() {
             <div className="flex flex-wrap items-center justify-between gap-3 mb-7">
               <span className="font-mono text-xs font-semibold text-warm-brown uppercase tracking-widest flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-terracotta" />
-                Massa & Estrutura // Backend & Dados
+                Backend & Dados
               </span>
               <span className="text-[10px] font-mono text-muted-foreground uppercase px-3 py-0.5 rounded-full border border-border">
                 8 Componentes
@@ -78,7 +78,7 @@ export function TechStack() {
             <div className="flex flex-wrap items-center justify-between gap-3 mb-7">
               <span className="font-mono text-xs font-semibold text-warm-brown uppercase tracking-widest flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-olive" />
-                Recheio & Precisão // Frontend & IA
+                Frontend & IA
               </span>
               <span className="text-[10px] font-mono text-muted-foreground uppercase px-3 py-0.5 rounded-full border border-border">
                 8 Componentes

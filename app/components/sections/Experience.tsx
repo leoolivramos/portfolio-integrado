@@ -16,7 +16,7 @@ const timelineVariant: Variants = {
 export function Experience() {
   return (
     <section id="experience" className="section-split scroll-mt-24">
-      <SectionTitle title="Jornada Profissional" icon={Briefcase} subtitle="Etapas de Preparo" />
+      <SectionTitle title="Jornada Profissional" icon={Briefcase} subtitle="Etapas da carreira" />
       <div className="space-y-0">
         <TimelineItem
           year="Jun 2024 - Atual"

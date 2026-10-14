@@ -16,7 +16,7 @@ const cardVariant: Variants = {
 export function Education() {
   return (
     <section id="education" className="section-split">
-      <SectionTitle title="Formação Acadêmica" icon={BookOpen} subtitle="Base da Receita" />
+      <SectionTitle title="Formação Acadêmica" icon={BookOpen} subtitle="Base de conhecimento" />
       
       <div className="grid gap-0">
         <motion.div 

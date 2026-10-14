@@ -227,7 +227,7 @@ export function AnalyticsDashboard({ stats }: { stats: Stats }) {
               className="font-mono text-xs text-warm-brown uppercase tracking-widest font-semibold mb-2 flex items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-olive" />
-              Composição das Matérias-Primas (Linguagens)
+              Composição dos projetos (Linguagens)
             </h3>
             <div className="flex-1 min-h-0">
               <ResponsiveContainer width="100%" height="100%">

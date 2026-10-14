@@ -34,13 +34,13 @@ export function Projects({ data }: { data: Project[] }) {
       <SectionTitle 
         title="Carta de Projetos" 
         icon={Terminal} 
-        subtitle="Criações do Forno & Produção Autoral" 
+        subtitle="Produção Autoral" 
       />
       
       {/* Header controls & description */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-5">
         <p className="lead-text text-foreground/75 max-w-xl text-balance">
-          Sistemas e arquiteturas desenvolvidos com matérias-primas modernas, sincronizados diretamente do GitHub e avaliados pelo índice de maturação técnica.
+          Sistemas e arquiteturas desenvolvidos com tecnologias modernas, sincronizados diretamente do GitHub e avaliados pelo índice de maturação técnica.
         </p>
 
         <div className="flex items-center gap-2.5 self-stretch md:self-auto justify-between md:justify-end shrink-0">
