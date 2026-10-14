@@ -76,6 +76,33 @@ export function Education() {
             Curso intensivo de especialização. Classificação no ranking final garantiu ingresso direto no estágio da CGE-MT.
           </p>
         </motion.div>
+        <motion.div 
+          className="group relative rule-top border-b border-border py-8 px-2 sm:px-3 -mx-2 sm:-mx-3 rounded-xl transition-all duration-300 hover:bg-parchment/20"
+          custom={1}
+          variants={cardVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          whileHover={{ x: 3 }}
+        >
+          {/* Hairline wipe on hover */}
+          <div className="absolute top-0 left-0 h-px w-0 bg-terracotta group-hover:w-full transition-all duration-500 ease-out" />
+          <div className="flex flex-wrap justify-between items-start gap-3 mb-4">
+            <span className="production-tag group-hover:border-terracotta/40 transition-colors">
+              Em andamento
+            </span>
+          </div>
+          <h3 
+            className="font-normal text-foreground text-xl md:text-2xl tracking-tight leading-tight group-hover:text-terracotta transition-colors duration-300"
+            style={{ fontFamily: 'var(--font-editorial)' }}
+          >
+             FIC - Programação de Sistemas com Inteligência Artificial
+          </h3>
+          <p className="text-sm text-foreground/80 font-medium mt-2">Fic-Dev / Seciteci MT</p>
+          <p className="text-[15px] text-muted-foreground mt-3 leading-relaxed max-w-xl group-hover:text-foreground/90 transition-colors">
+            Curso intensivo de especialização em uso de IA e dados.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
